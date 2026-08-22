@@ -1,0 +1,17 @@
+# Site settings
+title: direct-chat
+description: 消息直接在两台设备之间传递，没有服务器、没有账号。
+url: "https://direct-chat.clifftop.win"
+# 自定义域名（见 CNAME 文件）绑定后站点位于根路径，baseurl 保持空字符串。
+baseurl: ""
+
+markdown: kramdown
+
+# 不需要发布到站点的文件
+exclude:
+  - .workbuddy
+  - draft.md
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="{{ page.lang | default: 'zh-CN' }}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{ page.title }}</title>
+  {% if page.description %}<meta name="description" content="{{ page.description }}" />{% endif %}
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6333958019987485"
+     crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}" />
+</head>
+<body>
+  {%- if page.lang == 'en' -%}
+    {%- assign home_url = '/en/' | relative_url -%}
+    {%- assign faq_url = '/en/faq/' | relative_url -%}
+  {%- else -%}
+    {%- assign home_url = '/' | relative_url -%}
+    {%- assign faq_url = '/faq/' | relative_url -%}
+  {%- endif -%}
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="{{ home_url }}">
+        <span class="brand-mark" aria-hidden="true"><span class="brand-tree"></span></span>
+        <span class="brand-text">direct-chat</span>
+      </a>
+      <nav class="nav" aria-label="Site navigation">
+        {%- if page.lang == 'en' -%}
+          <a href="{{ home_url }}#why">Why</a>
+          <a href="{{ home_url }}#features">Features</a>
+          <a href="{{ home_url }}#screens">Screens</a>
+          <a href="{{ home_url }}#how">Quick start</a>
+          <a href="{{ faq_url }}">FAQ</a>
+          <a href="{{ home_url }}#connect">Contact</a>
+          <a class="lang-switch" href="{{ page.lang_alt | relative_url }}" hreflang="zh-CN" lang="zh-CN">中文</a>
+        {%- else -%}
+          <a href="{{ home_url }}#why">为什么</a>
+          <a href="{{ home_url }}#features">特性</a>
+          <a href="{{ home_url }}#screens">截图</a>
+          <a href="{{ home_url }}#how">上手</a>
+          <a href="{{ faq_url }}">FAQ</a>
+          <a href="{{ home_url }}#connect">交流</a>
+          <a class="lang-switch" href="{{ page.lang_alt | relative_url }}" hreflang="en" lang="en">English</a>
+        {%- endif -%}
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      {%- if page.lang == 'en' -%}
+        <p>direct-chat · peer-to-peer messaging</p>
+      {%- else -%}
+        <p>direct-chat · 点对点即时通信</p>
+      {%- endif -%}
+      <p class="muted">
+        © 2026 Cliff ·
+        <a href="mailto:cliff@clifftop.win">cliff@clifftop.win</a> ·
+        <a href="https://github.com/CliffHan/direct-chat-release" target="_blank" rel="noopener">GitHub</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
