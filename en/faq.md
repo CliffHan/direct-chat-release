@@ -117,7 +117,7 @@ The prototype can technically be compiled for these platforms, but I don't have 
 
 <h3 class="faq-q">I found a bug — how do I report it?</h3>
 
-Include your OS version, app version (e.g. v0.1.1) and steps to reproduce, then email <cliff@clifftop.win> or open an issue on the [GitHub repo](https://github.com/CliffHan/direct-chat-release).
+Include your OS version, app version (e.g. v{{ site.app_version }}) and steps to reproduce, then email <cliff@clifftop.win> or open an issue on the [GitHub repo](https://github.com/CliffHan/direct-chat-release).
 
 </div>
 </section>

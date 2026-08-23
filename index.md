@@ -17,7 +17,7 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
     <div class="meta">
       <span class="status">
         <span class="dot"></span>
-        当前客户端：<code>isle</code> v0.1.1
+        当前客户端：<code>isle</code> v{{ site.app_version }}
       </span>
       <span class="status">
         <span class="dot dot-dim"></span>
@@ -25,13 +25,13 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
       </span>
     </div>
     <div class="cta-row">
-      <a class="btn btn-primary" href="{{ '/app/isle_v0.1.1_a2fe622_windows_x64.exe' | relative_url }}">
+      <a class="btn btn-primary" href="{{ '/app/isle_v' | append: site.app_version | append: '_' | append: site.app_git_sha | append: '_windows_x64.exe' | relative_url }}">
         下载 Windows x64
-        <span class="btn-note">v0.1.1 · exe</span>
+        <span class="btn-note">v{{ site.app_version }} · exe</span>
       </a>
-      <a class="btn btn-primary" href="{{ '/app/isle_v0.1.1_a2fe622_android_arm64.apk' | relative_url }}">
+      <a class="btn btn-primary" href="{{ '/app/isle_v' | append: site.app_version | append: '_' | append: site.app_git_sha | append: '_android_arm64.apk' | relative_url }}">
         下载 Android arm64
-        <span class="btn-note">v0.1.1 · apk</span>
+        <span class="btn-note">v{{ site.app_version }} · apk</span>
       </a>
       <a class="btn btn-ghost" href="#connect">联系与反馈</a>
     </div>

@@ -7,6 +7,10 @@ baseurl: ""
 
 markdown: kramdown
 
+# 当前发布版本与构建对应的 git 短 SHA（升级版本时只需改这两处）
+app_version: "0.1.1"
+app_git_sha: "a2fe622"
+
 # 不需要发布到站点的文件
 exclude:
   - .workbuddy
