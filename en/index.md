@@ -17,7 +17,7 @@ description: direct-chat — messages travel directly between two devices. No se
     <div class="meta">
       <span class="status">
         <span class="dot"></span>
-        Current client: <code>isle</code> v0.1.0
+        Current client: <code>isle</code> v0.1.1
       </span>
       <span class="status">
         <span class="dot dot-dim"></span>
@@ -25,13 +25,13 @@ description: direct-chat — messages travel directly between two devices. No se
       </span>
     </div>
     <div class="cta-row">
-      <a class="btn btn-primary" href="{{ '/app/isle_v0.1.0_cef2ad2_windows_x64.exe' | relative_url }}">
+      <a class="btn btn-primary" href="{{ '/app/isle_v0.1.1_a2fe622_windows_x64.exe' | relative_url }}">
         Download Windows x64
-        <span class="btn-note">v0.1.0 · exe</span>
+        <span class="btn-note">v0.1.1 · exe</span>
       </a>
-      <a class="btn btn-primary" href="{{ '/app/isle_v0.1.0_cef2ad2_android_arm64.apk' | relative_url }}">
+      <a class="btn btn-primary" href="{{ '/app/isle_v0.1.1_a2fe622_android_arm64.apk' | relative_url }}">
         Download Android arm64
-        <span class="btn-note">v0.1.0 · apk</span>
+        <span class="btn-note">v0.1.1 · apk</span>
       </a>
       <a class="btn btn-ghost" href="#connect">Contact &amp; feedback</a>
     </div>

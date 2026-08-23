@@ -117,7 +117,7 @@ isle 中有两类密钥，丢失的后果不同：
 
 <h3 class="faq-q">发现了 bug，怎么反馈？</h3>
 
-附上系统版本、应用版本（例如 v0.1.0）和复现步骤，写信到 <cliff@clifftop.win>，或到 [GitHub 仓库](https://github.com/CliffHan/direct-chat-release)提 issue。
+附上系统版本、应用版本（例如 v0.1.1）和复现步骤，写信到 <cliff@clifftop.win>，或到 [GitHub 仓库](https://github.com/CliffHan/direct-chat-release)提 issue。
 
 </div>
 </section>
