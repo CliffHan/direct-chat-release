@@ -59,7 +59,12 @@
       <p class="muted">
         © 2026 Cliff ·
         <a href="mailto:cliff@clifftop.win">cliff@clifftop.win</a> ·
-        <a href="https://github.com/CliffHan/direct-chat-release" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/CliffHan/direct-chat-release" target="_blank" rel="noopener">GitHub</a> ·
+        {%- if page.lang == 'en' -%}
+          <a href="#disclaimer">Disclaimer</a>
+        {%- else -%}
+          <a href="#disclaimer">免责声明</a>
+        {%- endif -%}
       </p>
     </div>
   </footer>

@@ -39,6 +39,50 @@ description: direct-chat — messages travel directly between two devices. No se
       This is a prototype — please read the <a href="#limits">known limitations</a> before using it.
       Source and previous releases live on <a href="https://github.com/CliffHan/direct-chat-release" target="_blank" rel="noopener">GitHub</a>.
     </p>
+    <p class="hero-notice">
+      <strong>Disclaimer:</strong> This software is a technical research and teaching example. No platform service is provided. Users bear all risks. <a href="#disclaimer">Read full disclaimer →</a>
+    </p>
+  </div>
+</section>
+
+<section id="disclaimer" class="section section-alt">
+  <div class="container narrow">
+    <h2>Disclaimer</h2>
+    <p class="callout">
+      Please read the following terms carefully before using the direct-chat software (including the <code>isle</code> client). Downloading, installing, or using this software constitutes acceptance of this disclaimer in full.
+    </p>
+
+    <h3>Nature of the software</h3>
+    <p>
+      direct-chat is a personal <strong>technical research and teaching example</strong> project, not a commercially released product. The software is in the prototype stage; its functionality and stability have not been validated at scale and may contain known or unknown defects.
+    </p>
+
+    <h3>No platform, no data control</h3>
+    <p>
+      This project does not provide or operate any central platform service. All communication data is generated, transmitted, and stored solely on the users' own devices. The project maintainer does not hold, store, or control any user data. This means:
+    </p>
+    <ul>
+      <li>The maintainer cannot access, view, or manage your communication content;</li>
+      <li>The maintainer cannot assist in recovering lost data or resetting identities;</li>
+      <li>The maintainer cannot guarantee the reachability or reliability of communications.</li>
+    </ul>
+
+    <h3>Prohibited uses</h3>
+    <p>
+      Users must not use this software for any purpose that violates applicable laws or regulations, including but not limited to infringing on others' privacy, distributing illegal content, compromising network security, engaging in fraud, or other criminal activities. Users must ensure their use is lawful and compliant with the laws of their jurisdiction.
+    </p>
+
+    <h3>Use at your own risk</h3>
+    <p>
+      This software is provided "as is," without any express or implied warranty, including but not limited to warranties of merchantability, fitness for a particular purpose, and non-infringement. Users bear all risks and consequences of using this software. The project maintainer shall not be liable for any direct or indirect damages arising from the use of or inability to use this software.
+    </p>
+
+    <h3>Other</h3>
+    <ul>
+      <li>The maintainer reserves the right to modify, suspend, or terminate the software, or update any part of its functionality, at any time without prior notice.</li>
+      <li>This disclaimer may be updated from time to time; the version displayed on the website at the time of access shall prevail.</li>
+      <li>If you have any questions, please contact the maintainer via the <a href="#connect">contact information</a>.</li>
+    </ul>
   </div>
 </section>
 
