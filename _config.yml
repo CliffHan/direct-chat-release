@@ -11,6 +11,18 @@ markdown: kramdown
 app_version: "0.1.2"
 app_git_sha: "efd980c"
 
+# 法律页面（/privacy/ 与 /terms/）共用的信息，改动只需在这里改一处
+legal_effective_date: "2026-09-09"          # 生效日期（YYYY-MM-DD）
+legal_last_updated: "2026-09-09"            # 最后更新日期（YYYY-MM-DD）
+legal_developer: "Cliff Han"                # 开发者 / 法律责任主体名称（建议与 Play 开发者账号名称一致）
+legal_email: "cliff@clifftop.win"           # 隐私与条款联系邮箱
+legal_address: "Available upon request"     # 邮寄地址（如需，改为真实地址）
+legal_jurisdiction: "the laws of Singapore"                       # 管辖法律（中立选择，不在中国大陆上架）
+legal_forum: "courts of Singapore"                                # 争议管辖法院（前面不要加 the）
+legal_ads_platform: "AppLovin MAX"          # 广告聚合平台（广告 SDK 数据源）
+legal_project: "direct-chat"                # 项目总称
+legal_app: "isle"                           # 当前已发布的应用名（后续新增应用在两个页面第 1 节补充即可）
+
 # 不需要发布到站点的文件
 exclude:
   - .workbuddy

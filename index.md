@@ -2,14 +2,14 @@
 layout: default
 lang: zh-CN
 lang_alt: /en/
-title: direct-chat · 不依赖服务器的点对点即时通信
+title: direct-chat/isle · 不依赖服务器的点对点即时通信
 description: direct-chat：消息直接在设备之间传递，没有服务器、没有账号，只要两台设备都在线，就能互相联系。
 ---
 
 <section class="hero">
   <div class="container">
     <p class="eyebrow">点对点即时通信 · 原型阶段</p>
-    <h1 class="title">direct-chat</h1>
+    <h1 class="title">direct-chat<span class="title-app">/isle</span></h1>
     <p class="lede">
       消息直接在两台设备之间传递。
       <em>没有服务器，没有账号</em>——只要两台设备都在线，就能互相联系。
@@ -27,18 +27,32 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
     <div class="cta-row">
       <a class="btn btn-primary" href="{{ '/app/isle_v' | append: site.app_version | append: '_' | append: site.app_git_sha | append: '_windows_x64.exe' | relative_url }}">
         下载 Windows x64
-        <span class="btn-note">v{{ site.app_version }} · exe</span>
+        <span class="btn-note">v{{ site.app_version }} · exe · 原型版</span>
       </a>
       <a class="btn btn-primary" href="{{ '/app/isle_v' | append: site.app_version | append: '_' | append: site.app_git_sha | append: '_android_arm64.apk' | relative_url }}">
         下载 Android arm64
-        <span class="btn-note">v{{ site.app_version }} · apk</span>
+        <span class="btn-note">v{{ site.app_version }} · apk · 原型版</span>
       </a>
       <a class="btn btn-ghost" href="#connect">联系与反馈</a>
     </div>
     <p class="dl-hint">
-      当前为原型版本，使用前请先阅读<a href="#limits">已知限制</a>。
-      源码与历史发布见 <a href="https://github.com/CliffHan/direct-chat-release" target="_blank" rel="noopener">GitHub</a>。
+      以上两个包都是跨平台原型版本，使用前请先阅读<a href="#limits">已知限制</a>。
+      历史发布见 <a href="https://github.com/CliffHan/direct-chat-release" target="_blank" rel="noopener">GitHub</a>。
     </p>
+    <div class="dl-coming">
+      <span class="badge">即将到来</span>
+      <div>
+        <p>
+          <strong>Android 原生版本。</strong>针对 Android 本身开发，与原型版共用同一套底层，但系统适配好得多——后台保活、通知、以及能与锁屏和系统电话界面协同的通话界面。
+          当前版本尚未实现消息收发；两条线都会继续往下走，原型版也会采纳原生版确立的界面设计。
+          两者的区别见<a href="{{ '/faq/' | relative_url }}">FAQ</a>。
+        </p>
+        <div class="dl-coming-actions">
+          <span class="btn btn-soon">Google Play<span class="btn-note">上架后开放</span></span>
+          <span class="btn btn-soon">下载 APK<span class="btn-note">同版本</span></span>
+        </div>
+      </div>
+    </div>
     <p class="hero-notice">
       <strong>免责声明：</strong>本软件为技术研究与教学示例，不提供平台服务，使用者自行承担全部风险。<a href="#disclaimer">详见免责声明 →</a>
     </p>
@@ -134,9 +148,10 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
 
 <section id="status" class="section">
   <div class="container narrow">
-    <h2>isle 目前能做什么</h2>
+    <h2>direct-chat/isle 目前能做什么</h2>
     <p>
-      <code>isle</code> 是 direct-chat 当前的客户端，已实现：
+      <strong>direct-chat</strong> 是项目名称，<strong>isle</strong> 是它的客户端——你下载安装的就是它，各个版本都以这个名字发布。
+      以下是 isle 当前已实现的能力（描述的是上面可下载的跨平台原型版；与 Android 原生版的区别见<a href="{{ '/faq/' | relative_url }}">FAQ</a>）：
     </p>
     <ul class="feature-list">
       <li>
@@ -269,6 +284,9 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
 <section id="roadmap" class="section">
   <div class="container narrow">
     <h2>接下来做什么</h2>
+    <p class="section-sub">
+      现在是两条线并行：跨平台原型版与 Android 原生版。两者共用同一套底层，区别在界面形态和系统适配深度，后续都会继续推进。
+    </p>
     <ol class="roadmap">
       <li>
         <span class="prio">P1</span>
@@ -280,15 +298,22 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
       <li>
         <span class="prio">P2</span>
         <div>
-          <h4>完善 isle</h4>
-          <p>增加点对点文件传输，逐步补齐通知、记录、连接管理等细节。</p>
+          <h4>原生版补齐消息收发</h4>
+          <p>为 Android 原生版加入消息收发能力，让它具备原型版已有的完整功能。</p>
         </div>
       </li>
       <li>
         <span class="prio">P3</span>
         <div>
-          <h4>重新设计 isle</h4>
-          <p>吸收原型阶段的经验，可能按不同平台分别重新实现。</p>
+          <h4>完善原型版</h4>
+          <p>增加点对点文件传输，逐步补齐通知、记录、连接管理等细节。</p>
+        </div>
+      </li>
+      <li>
+        <span class="prio">P4</span>
+        <div>
+          <h4>重做界面</h4>
+          <p>以 Android 原生版确立的界面为基准改造原型版——底层不变，上层收敛为一致的体验。</p>
         </div>
       </li>
     </ol>
@@ -311,7 +336,7 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
       <a class="connect-card" href="https://github.com/CliffHan/direct-chat-release" target="_blank" rel="noopener">
         <span class="connect-label">GitHub</span>
         <span class="connect-value">CliffHan/direct-chat-release</span>
-        <span class="connect-desc">源码、发布历史与问题反馈。</span>
+        <span class="connect-desc">发布历史、更新说明与问题反馈。</span>
       </a>
     </div>
     <p class="connect-note">

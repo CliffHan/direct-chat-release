@@ -3,7 +3,7 @@ layout: default
 permalink: /en/faq/
 lang: en
 lang_alt: /faq/
-title: FAQ · direct-chat
+title: FAQ · direct-chat/isle
 description: Frequently asked questions about direct-chat and isle — devices and identities, staying online, encryption and privacy, and how it compares to other tools.
 ---
 
@@ -28,14 +28,28 @@ The relationship is established like this:
 
 Once bound, the association cannot simply be removed — the only way out is resetting the device's data, which turns it back into a “new device” that starts over.
 
-What a reset does to your data depends on the platform:
+What a reset does to your data depends on the platform and on which build you are running:
 
-- **Android**: reset wipes everything — the address book and chat history go with it.
-- **Windows**: the address book and chat history live in a SQLite database file, while your identity and other personal info live in a TOML file with the same name. Keep those two files in place (or back them up and restore them), and the data survives the reset.
+- **Windows (prototype)**: the address book and chat history live in a SQLite database file, while your identity and other personal info live in a TOML file with the same name. Keep those two files in place (or back them up and restore them), and the data survives the reset.
+- **Android, prototype build**: reset wipes everything — the address book and chat history go with it, and there is no way back.
+- **Android, native build**: encrypted backup and import are supported. Export a backup before resetting, then import it during initialization, and your address book, chat history, and identity all come back.
+
+Backup and import exist only in the native Android build. The cross-platform prototype exists to validate the approach as broadly as possible, and there is no plan to add this feature to it — so on the prototype a reset means the data is gone for good. Follow the Windows instructions above and keep your own copy of the files.
+
+How a backup works: when you **export**, you set a password, the backup is encrypted with it, and it is saved to the device's Downloads folder by default. When you **import**, you pick the file through the system file picker and enter the same password to decrypt it. The password is never uploaded anywhere and the developer has no means of decrypting the file. That cuts both ways: no one else ends up holding a readable copy, but there is no way to recover a forgotten password either — lose it and that backup cannot be opened.
 
 <h3 class="faq-q">What does “node” mean?</h3>
 
 Every device running isle is a p2p network node with its own unique device ID. All communication happens between nodes; an identity is more than the “name card” a node presents — it also carries the signing and encryption keys that confirm the sender and the recipient of a message are who you intend them to be.
+
+<h3 class="faq-q">Prototype or native Android version — which is which?</h3>
+
+Both are builds of the same client, <code>isle</code>; they simply optimise for different things.
+
+- **Cross-platform prototype** — what you can download from the homepage today. One codebase packaged for Windows x64 and Android arm64, running inside a WebView on Android. Its job is to validate the peer-to-peer approach as broadly as possible: several platforms at once, and enough functionality to actually send messages and make calls. The trade-off is that the parts needing deep OS support — staying alive in the background, notifications, a call screen that behaves properly — are its weakest area, and overall stability is average.
+- **Native Android version** — nearly finished, sharing the same core as the prototype. Written against Android itself, so the parts that lean on the system (background survival, notifications, a call UI that integrates with the system dialler and comes up on the lock screen) behave far better. It is narrower in scope for now: the current build does not implement messaging, so it can't send or receive messages yet. It will be published on Google Play, and both lines keep moving: messaging is coming to it, and the prototype will adopt the interface it establishes.
+
+Unless a question says otherwise, everything else in this FAQ that mentions Android refers to the cross-platform prototype.
 
 <h3 class="faq-group">Using it</h3>
 

@@ -2,14 +2,14 @@
 layout: default
 lang: en
 lang_alt: /
-title: direct-chat · serverless peer-to-peer messaging
+title: direct-chat/isle · serverless peer-to-peer messaging
 description: direct-chat — messages travel directly between two devices. No server, no accounts — if both devices are online, you can reach each other.
 ---
 
 <section class="hero">
   <div class="container">
     <p class="eyebrow">Peer-to-peer messaging · prototype stage</p>
-    <h1 class="title">direct-chat</h1>
+    <h1 class="title">direct-chat<span class="title-app">/isle</span></h1>
     <p class="lede">
       Messages travel directly between two devices.
       <em>No server, no accounts</em> — as long as both devices are online, you can reach each other.
@@ -27,18 +27,32 @@ description: direct-chat — messages travel directly between two devices. No se
     <div class="cta-row">
       <a class="btn btn-primary" href="{{ '/app/isle_v' | append: site.app_version | append: '_' | append: site.app_git_sha | append: '_windows_x64.exe' | relative_url }}">
         Download Windows x64
-        <span class="btn-note">v{{ site.app_version }} · exe</span>
+        <span class="btn-note">v{{ site.app_version }} · exe · prototype</span>
       </a>
       <a class="btn btn-primary" href="{{ '/app/isle_v' | append: site.app_version | append: '_' | append: site.app_git_sha | append: '_android_arm64.apk' | relative_url }}">
         Download Android arm64
-        <span class="btn-note">v{{ site.app_version }} · apk</span>
+        <span class="btn-note">v{{ site.app_version }} · apk · prototype</span>
       </a>
       <a class="btn btn-ghost" href="#connect">Contact &amp; feedback</a>
     </div>
     <p class="dl-hint">
-      This is a prototype — please read the <a href="#limits">known limitations</a> before using it.
-      Source and previous releases live on <a href="https://github.com/CliffHan/direct-chat-release" target="_blank" rel="noopener">GitHub</a>.
+      Both downloads are the cross-platform prototype build — please read the <a href="#limits">known limitations</a> before using it.
+      Previous releases live on <a href="https://github.com/CliffHan/direct-chat-release" target="_blank" rel="noopener">GitHub</a>.
     </p>
+    <div class="dl-coming">
+      <span class="badge">Coming soon</span>
+      <div>
+        <p>
+          <strong>Native Android version.</strong> Written for Android itself, sharing the same core as the prototype but with far better system integration — background survival, notifications, and a call screen that works with the lock screen and the system dialler.
+          Its current build does not yet implement messaging; both builds will keep moving forward, and the prototype will adopt the interface the native version establishes.
+          See the <a href="{{ '/en/faq/' | relative_url }}">FAQ</a> for how the two differ today.
+        </p>
+        <div class="dl-coming-actions">
+          <span class="btn btn-soon">Google Play<span class="btn-note">on publication</span></span>
+          <span class="btn btn-soon">Download APK<span class="btn-note">same build</span></span>
+        </div>
+      </div>
+    </div>
     <p class="hero-notice">
       <strong>Disclaimer:</strong> This software is a technical research and teaching example. No platform service is provided. Users bear all risks. <a href="#disclaimer">Read full disclaimer →</a>
     </p>
@@ -134,9 +148,10 @@ description: direct-chat — messages travel directly between two devices. No se
 
 <section id="status" class="section">
   <div class="container narrow">
-    <h2>What isle does today</h2>
+    <h2>What direct-chat/isle does today</h2>
     <p>
-      <code>isle</code> is the current direct-chat client. It already supports:
+      <strong>direct-chat</strong> is the name of the project; <strong>isle</strong> is the client you install and run — every build is published under that name.
+      What it already does (this describes the cross-platform prototype you can download above; see the <a href="{{ '/en/faq/' | relative_url }}">FAQ</a> for how the native Android version differs):
     </p>
     <ul class="feature-list">
       <li>
@@ -269,6 +284,9 @@ description: direct-chat — messages travel directly between two devices. No se
 <section id="roadmap" class="section">
   <div class="container narrow">
     <h2>What's next</h2>
+    <p class="section-sub">
+      There are two builds now: the cross-platform prototype and the native Android version. They share the same core and differ in interface and how deeply each fits into its system — both continue in parallel.
+    </p>
     <ol class="roadmap">
       <li>
         <span class="prio">P1</span>
@@ -280,15 +298,22 @@ description: direct-chat — messages travel directly between two devices. No se
       <li>
         <span class="prio">P2</span>
         <div>
-          <h4>Polish isle</h4>
-          <p>Peer-to-peer file transfer, plus notifications, history, connection handling and other details.</p>
+          <h4>Messaging on Android native</h4>
+          <p>Bring sending and receiving messages to the native version, so it covers everything the prototype already does.</p>
         </div>
       </li>
       <li>
         <span class="prio">P3</span>
         <div>
-          <h4>Redesign isle</h4>
-          <p>Take what the prototype taught us and reimplement — possibly separately per platform.</p>
+          <h4>Polish the prototype</h4>
+          <p>Peer-to-peer file transfer, plus notifications, history, connection handling and other details.</p>
+        </div>
+      </li>
+      <li>
+        <span class="prio">P4</span>
+        <div>
+          <h4>Rework the interface</h4>
+          <p>Redesign the prototype around the interface the native Android version establishes — same core underneath, one shared experience on top.</p>
         </div>
       </li>
     </ol>
@@ -311,7 +336,7 @@ description: direct-chat — messages travel directly between two devices. No se
       <a class="connect-card" href="https://github.com/CliffHan/direct-chat-release" target="_blank" rel="noopener">
         <span class="connect-label">GitHub</span>
         <span class="connect-value">CliffHan/direct-chat-release</span>
-        <span class="connect-desc">Source, releases, and issue tracking.</span>
+        <span class="connect-desc">Releases, updates, and issue tracking.</span>
       </a>
     </div>
     <p class="connect-note">
