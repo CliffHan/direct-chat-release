@@ -180,8 +180,16 @@ code {
 }
 
 @media (max-width: 640px) {
+  /* 移动端空间有限：只保留语言切换，其余导航（含锚点跳转）隐藏 */
   .nav {
+    gap: 0;
+  }
+  .nav a:not(.lang-switch) {
     display: none;
+  }
+  .lang-switch {
+    padding: 6px 14px !important;
+    font-size: 13px;
   }
 }
 
