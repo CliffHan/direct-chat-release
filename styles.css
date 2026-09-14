@@ -166,17 +166,18 @@ code {
   color: var(--text);
   border-bottom-color: var(--text);
 }
-.lang-switch {
+/* 用 .nav a.lang-switch 而非 .lang-switch：需压过 .nav a 的 border-bottom，
+   否则胶囊底边会被置为 transparent */
+.nav a.lang-switch {
   font-weight: 600;
-  color: var(--text) !important;
+  color: var(--text);
   border: 1px solid var(--border-strong);
   border-radius: 999px;
-  padding: 3px 12px !important;
+  padding: 3px 12px;
   transition: border-color 0.15s ease;
 }
-.lang-switch:hover {
-  border-color: var(--text) !important;
-  border-bottom-color: var(--text) !important;
+.nav a.lang-switch:hover {
+  border-color: var(--text);
 }
 
 @media (max-width: 640px) {
@@ -187,8 +188,8 @@ code {
   .nav a:not(.lang-switch) {
     display: none;
   }
-  .lang-switch {
-    padding: 6px 14px !important;
+  .nav a.lang-switch {
+    padding: 6px 14px;
     font-size: 13px;
   }
 }
