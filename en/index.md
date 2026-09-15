@@ -48,7 +48,7 @@ description: direct-chat — messages travel directly between two devices. No se
           See the <a href="{{ '/en/faq/' | relative_url }}">FAQ</a> for how the two differ today.
         </p>
         <div class="dl-coming-actions">
-          <span class="btn btn-soon">Google Play<span class="btn-note">on publication</span></span>
+          <span class="btn btn-soon">App stores<span class="btn-note">once the channel is decided</span></span>
           <span class="btn btn-soon">Download APK<span class="btn-note">same build</span></span>
         </div>
       </div>
@@ -164,7 +164,7 @@ description: direct-chat — messages travel directly between two devices. No se
       </li>
       <li>
         <span class="bullet"></span>
-        <div><strong>Messaging</strong> — direct plaintext / markdown messaging between isle nodes.</div>
+        <div><strong>Messaging</strong> — direct plaintext / markdown messaging between isle nodes (not yet on the native Android version).</div>
       </li>
       <li>
         <span class="bullet"></span>
@@ -291,29 +291,29 @@ description: direct-chat — messages travel directly between two devices. No se
       <li>
         <span class="prio">P1</span>
         <div>
-          <h4>Auxiliary nodes</h4>
-          <p>Relay, discovery, and message-holding nodes to ease the “both sides online at once” constraint.</p>
+          <h4>Auxiliary nodes — build &amp; integrate</h4>
+          <p>Develop relay, discovery, and message-holding nodes and integrate them into the existing clients, easing the “both sides online at once” constraint.</p>
         </div>
       </li>
       <li>
         <span class="prio">P2</span>
         <div>
-          <h4>Messaging on Android native</h4>
-          <p>Bring sending and receiving messages to the native version, so it covers everything the prototype already does.</p>
+          <h4>Rework the prototype UI</h4>
+          <p>Rebuild the prototype interface around the design the native Android version establishes — same core underneath, one shared experience on top.</p>
         </div>
       </li>
       <li>
         <span class="prio">P3</span>
         <div>
-          <h4>Polish the prototype</h4>
-          <p>Peer-to-peer file transfer, plus notifications, history, connection handling and other details.</p>
+          <h4>Android native: tablets &amp; TV</h4>
+          <p>Adapt the native Android version for Android tablets and Android TV — bigger screens, different interaction patterns.</p>
         </div>
       </li>
       <li>
         <span class="prio">P4</span>
         <div>
-          <h4>Rework the interface</h4>
-          <p>Redesign the prototype around the interface the native Android version establishes — same core underneath, one shared experience on top.</p>
+          <h4>Messaging polish &amp; file transfer</h4>
+          <p>Round out messaging and add peer-to-peer file transfer.</p>
         </div>
       </li>
     </ol>

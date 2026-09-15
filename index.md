@@ -48,7 +48,7 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
           两者的区别见<a href="{{ '/faq/' | relative_url }}">FAQ</a>。
         </p>
         <div class="dl-coming-actions">
-          <span class="btn btn-soon">Google Play<span class="btn-note">上架后开放</span></span>
+          <span class="btn btn-soon">应用市场<span class="btn-note">上架渠道确定后开放</span></span>
           <span class="btn btn-soon">下载 APK<span class="btn-note">同版本</span></span>
         </div>
       </div>
@@ -164,7 +164,7 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
       </li>
       <li>
         <span class="bullet"></span>
-        <div><strong>消息</strong> — 节点直连收发 plaintext / markdown 消息。</div>
+        <div><strong>消息</strong> — 节点直连收发 plaintext / markdown 消息（Android 原生版本暂不支持）。</div>
       </li>
       <li>
         <span class="bullet"></span>
@@ -291,29 +291,29 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
       <li>
         <span class="prio">P1</span>
         <div>
-          <h4>新增各类辅助节点</h4>
-          <p>提供中继、查找与消息暂存能力，缓解“双方必须同时在线”的限制。</p>
+          <h4>辅助节点开发与整合</h4>
+          <p>开发中继、查找与消息暂存等辅助节点，并整合进现有客户端，缓解“双方必须同时在线”的限制。</p>
         </div>
       </li>
       <li>
         <span class="prio">P2</span>
         <div>
-          <h4>原生版补齐消息收发</h4>
-          <p>为 Android 原生版加入消息收发能力，让它具备原型版已有的完整功能。</p>
+          <h4>原型版界面重构</h4>
+          <p>以 Android 原生版确立的界面为基准重构原型版界面——底层不变，上层收敛为一致的体验。</p>
         </div>
       </li>
       <li>
         <span class="prio">P3</span>
         <div>
-          <h4>完善原型版</h4>
-          <p>增加点对点文件传输，逐步补齐通知、记录、连接管理等细节。</p>
+          <h4>Android 原生版适配平板与 TV</h4>
+          <p>让 Android 原生版适配 Android 平板与 Android TV，覆盖更大的屏幕与不同的交互方式。</p>
         </div>
       </li>
       <li>
         <span class="prio">P4</span>
         <div>
-          <h4>重做界面</h4>
-          <p>以 Android 原生版确立的界面为基准改造原型版——底层不变，上层收敛为一致的体验。</p>
+          <h4>完善消息收发与文件传输</h4>
+          <p>完善消息收发功能，并增加点对点文件传输。</p>
         </div>
       </li>
     </ol>

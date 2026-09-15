@@ -7,6 +7,8 @@
   {% if page.description %}<meta name="description" content="{{ page.description }}" />{% endif %}
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6333958019987485"
      crossorigin="anonymous"></script>
+  <link rel="icon" type="image/png" href="{{ '/assets/ic_launcher_isle.png' | relative_url }}" />
+  <link rel="apple-touch-icon" href="{{ '/assets/ic_launcher_isle.png' | relative_url }}" />
   <!-- 加构建时间戳：Cloudflare 对静态资源设了 4 小时 Browser Cache TTL，
        否则改样式后访客会长时间拿到旧 CSS -->
   <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}?v={{ site.time | date: '%s' }}" />
@@ -22,7 +24,7 @@
   <header class="topbar">
     <div class="container topbar-inner">
       <a class="brand" href="{{ home_url }}">
-        <span class="brand-mark" aria-hidden="true"><span class="brand-tree"></span></span>
+        <span class="brand-mark" aria-hidden="true"><img src="{{ '/assets/ic_launcher_isle.png' | relative_url }}" alt="" /></span>
         <span class="brand-text">direct-chat</span>
       </a>
       <nav class="nav" aria-label="Site navigation">
