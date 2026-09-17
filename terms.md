@@ -127,7 +127,7 @@ You are solely responsible for the content you send and for having the rights ne
 ### 9. Third-party networks and components
 {: #third-party}
 
-The Software builds on third-party networking technology (including the iroh libraries). Connections may be made over the local network, through DHT-based peer discovery, or through relay servers operated by third parties such as number0, Inc. Support for configuring your own relay is planned but not yet available; while the app offers no self-hosted relay option, the relays offered by number0 are the ones in use.
+The Software builds on third-party networking technology (including the iroh libraries). Connections may be made over the local network, through DHT-based peer discovery, or through relay servers operated by third parties such as number0, Inc. Support for configuring your own relay is planned but not yet available; while the app offers no self-hosted relay option, the relays offered by number0 are the ones in use. Setting up a call also involves querying public STUN/ICE servers; those, like the relays, are run by third parties rather than by me, and the particular endpoints in use can change from one release to the next.
 
 The Software also displays advertisements delivered through {{ site.legal_ads_platform }} and the advertising networks that participate in it. I do not control which ads are shown, what they contain, or where they lead, and I am not responsible for the content of advertisements, for the products or services they promote, or for the data practices of the advertising providers, which are governed by their own terms and policies.
 

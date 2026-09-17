@@ -13,7 +13,7 @@ description: How the direct-chat applications, currently isle, handle your infor
 
 <p class="legal-meta">Effective {{ site.legal_effective_date }} · Last updated {{ site.legal_last_updated }} · Applies to the {{ site.legal_project }} applications, currently <code>{{ site.legal_app }}</code> (v{{ site.app_version }} and later), and to this website</p>
 
-<p class="callout"><strong>The short version:</strong> direct-chat has no accounts, no servers, and no analytics or crash reporting of my own. Your contacts and messages are stored only on your own device and on the devices of the people you talk to; as the developer I operate no backend service, so I have no way to read, store, or produce your messages. When a direct device-to-device connection cannot be established, traffic is relayed through the public iroh relay network, and relayed data stays encrypted end to end. The Apps are ad-supported: advertisements are served by third-party SDKs through {{ site.legal_ads_platform }}, and those SDKs collect device identifiers and ad-interaction data for their own advertising purposes, as explained in section 6.</p>
+<p class="callout"><strong>The short version:</strong> direct-chat has no accounts, no servers, and no analytics or crash reporting of my own. Your contacts and messages are stored only on your own device and on the devices of the people you talk to; as the developer I operate no backend service, so I have no way to read, store, or produce your messages. When a direct device-to-device connection cannot be established, traffic is relayed through the public iroh relay network, and relayed data stays encrypted end to end. Setting up a call also involves queries to public STUN/ICE servers, which see only the network addresses involved and never your content. The Apps are ad-supported: advertisements are served by third-party SDKs through {{ site.legal_ads_platform }}, and those SDKs collect device identifiers and ad-interaction data for their own advertising purposes, as explained in section 6.</p>
 
 <nav class="toc" aria-label="On this page">
   <p class="toc-title">On this page</p>
@@ -100,6 +100,7 @@ Audio and video from calls are streamed to the other participant; they are not r
 
 - **To the recipient's device.** Messages, files, and call media are encrypted on your device and decrypted on the recipient's device. In the normal case they travel directly between the two devices.
 - **Over the local network.** When both devices are on the same network, the Apps can discover the peer and connect directly, without traffic leaving that network.
+- **When a call is set up (STUN/ICE).** Calls run over WebRTC, and for two devices to connect directly each side has to learn how its own address appears from the outside. The Apps do this by sending small queries to public STUN/ICE servers: publicly available endpoints run by unrelated third parties, a mix of cloud, network and other internet providers, including servers operated by Google and Cloudflare. Such a server sees only the IP address and port the query came from. No message content and no call media passes through it, and in the current implementation these endpoints are used only to discover addresses, never to carry traffic. Which endpoints are used is not a fixed list: they may be added, replaced or dropped between releases, and the app does not depend on any single provider. Messages, files and call signalling do not go through these servers — signalling is exchanged over the same encrypted iroh connection as the messages themselves.
 - **Through relay servers, when a direct connection is not possible.** Across NATs or restrictive networks, traffic is relayed through the iroh network. The default relay servers are operated by number0, Inc. (n0), a third party. A relay forwards already-encrypted packets; it can observe metadata such as IP addresses, node identifiers, connection times, and data volumes, but it cannot decrypt content and does not store messages. Support for running your own relay is planned but is not available yet; until then, the default relays operated by number0 are the ones in use. You can switch off the "free relay network" option in the app's network settings, in which case the app connects only when it can find a direct path.
 - **For peer discovery.** Depending on your network settings, a peer is found through local network discovery, through a distributed hash table (DHT), or through a discovery service operated by number0, Inc. With DHT discovery, the lookup is served by other nodes participating in that DHT, which learn which node ID you are looking for; with number0's discovery service, that provider learns it instead. A discovery lookup reveals only the node ID being sought — never message content.
 
@@ -108,7 +109,7 @@ No other party receives your message content. Because the network is peer-to-pee
 ### 6. Advertising and third-party SDKs
 {: #advertising}
 
-The app is free and ad-supported. Advertisements are delivered through {{ site.legal_ads_platform }}, a third-party mediation platform that works with a number of advertising networks and demand partners.
+The app is free and ad-supported. Advertisements are delivered through {{ site.legal_ads_platform }}, a third-party advertising platform that works with a number of advertising networks and demand partners. The platform in use is not fixed: it may be changed in a future release, in which case this policy is updated to match.
 
 Advertising SDKs run inside the app and communicate directly with those providers. They may collect and use:
 
@@ -116,7 +117,7 @@ Advertising SDKs run inside the app and communicate directly with those provider
 - **Device and connection information**, such as device model, OS version, language, carrier, and IP address (from which an approximate location may be inferred);
 - **Advertising data**, such as which ads were shown, viewed, or tapped, and interactions with them.
 
-This data is used for advertising purposes: selecting and delivering ads, measuring ad performance, frequency capping, fraud prevention, and — where permitted — personalising ads. Some of these activities are treated as "sale" or "sharing" of personal information under certain privacy laws; see section 12 for your choices. Advertising providers act as independent controllers for the data they collect, and their handling of it is governed by their own privacy policies, not by this one. A list of mediation partners is published by [AppLovin](https://www.applovin.com/privacy/); the specific partners active at any time can change without notice to me.
+This data is used for advertising purposes: selecting and delivering ads, measuring ad performance, frequency capping, fraud prevention, and — where permitted — personalising ads. Some of these activities are treated as "sale" or "sharing" of personal information under certain privacy laws; see section 12 for your choices. Advertising providers act as independent controllers for the data they collect, and their handling of it is governed by their own privacy policies, not by this one. The platform's own privacy policy describes it and the partner networks it works with — see [{{ site.legal_ads_platform }}]({{ site.legal_ads_privacy_url }}) — and the partners active at any time can change without notice to me.
 
 To be clear about what advertising does **not** mean here: I receive no analytics, usage statistics, or crash reports from the app, ads are served independently of your conversations, and the content of your messages and calls is never used for advertising.
 
@@ -155,7 +156,7 @@ As the developer, I do not sell, rent, or trade personal information for money, 
 
 Two kinds of transmission do occur, and are described elsewhere in this policy:
 
-- **Network infrastructure** (section 5) — relays and discovery services act purely as carriers of encrypted traffic and do not receive your message content.
+- **Network infrastructure** (section 5) — relays and discovery services act purely as carriers of encrypted traffic, and the public STUN/ICE servers queried when a call is set up see only network addresses. None of them receive your message content or call media.
 - **Advertising SDKs** (section 6) — advertising providers receive device identifiers, IP-derived approximate location, and ad-interaction data for their own advertising and measurement purposes. Some privacy laws describe this as "sharing" or "selling"; where that is the case, you can exercise the choices in section 12.
 
 If I were ever served with a legal request for user data, I would have nothing to hand over: I hold no accounts, no message content, and no communication records. I would respond accordingly and, unless legally prohibited, notify the person affected.
@@ -199,7 +200,7 @@ I do not sell your personal information for money. Where a jurisdiction treats i
 ### 13. International data transfers
 {: #transfers}
 
-The peers you connect to, the relay and discovery servers used to reach them, and the advertising providers that serve ads may be located in a country other than your own. Message content is encrypted before it leaves your device, so it is not readable in transit. Advertising data is handled by those providers under their own transfer safeguards. Cross-border transmission is inherent to how a peer-to-peer network and third-party advertising work, and is not something I can route or restrict.
+The peers you connect to, the relay and discovery servers used to reach them, the public STUN/ICE servers queried when a call is set up, and the advertising providers that serve ads may be located in a country other than your own. Message content is encrypted before it leaves your device, so it is not readable in transit. Advertising data is handled by those providers under their own transfer safeguards. Cross-border transmission is inherent to how a peer-to-peer network and third-party advertising work, and is not something I can route or restrict.
 
 ### 14. This website
 {: #website}
