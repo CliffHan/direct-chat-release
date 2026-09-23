@@ -17,42 +17,47 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
     <div class="meta">
       <span class="status">
         <span class="dot"></span>
-        当前客户端：<code>isle</code> v{{ site.app_version }}
+        当前客户端：<code>isle</code>
       </span>
       <span class="status">
         <span class="dot dot-dim"></span>
-        Windows x64 / Android arm64
+        Windows x64 · Android
       </span>
     </div>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="{{ '/app/isle_v' | append: site.app_version | append: '_' | append: site.app_git_sha | append: '_windows_x64.exe' | relative_url }}">
-        下载 Windows x64
-        <span class="btn-note">v{{ site.app_version }} · exe · 原型版</span>
-      </a>
-      <a class="btn btn-primary" href="{{ '/app/isle_v' | append: site.app_version | append: '_' | append: site.app_git_sha | append: '_android_arm64.apk' | relative_url }}">
-        下载 Android arm64
-        <span class="btn-note">v{{ site.app_version }} · apk · 原型版</span>
-      </a>
-      <a class="btn btn-ghost" href="#connect">联系与反馈</a>
-    </div>
-    <p class="dl-hint">
-      以上两个包都是跨平台原型版本，使用前请先阅读<a href="#limits">已知限制</a>。
-      历史发布见 <a href="https://github.com/CliffHan/direct-chat-release" target="_blank" rel="noopener">GitHub</a>。
-    </p>
-    <div class="dl-coming">
-      <span class="badge">即将到来</span>
-      <div>
-        <p>
-          <strong>Android 原生版本。</strong>针对 Android 本身开发，与原型版共用同一套底层，但系统适配好得多——后台保活、通知、以及能与锁屏和系统电话界面协同的通话界面。
-          当前版本尚未实现消息收发；两条线都会继续往下走，原型版也会采纳原生版确立的界面设计。
-          两者的区别见<a href="{{ '/faq/' | relative_url }}">FAQ</a>。
-        </p>
-        <div class="dl-coming-actions">
-          <span class="btn btn-soon">应用市场<span class="btn-note">上架渠道确定后开放</span></span>
-          <span class="btn btn-soon">下载 APK<span class="btn-note">同版本</span></span>
+    <ul class="dl-list">
+      <li class="dl-item">
+        <div class="dl-info">
+          <span class="dl-name">Android<span class="dl-tag">原生版</span></span>
+          <p class="dl-desc">
+            针对 Android 本身开发，后台保活、通知与系统电话界面适配更好。当前版本尚未实现消息收发。
+          </p>
         </div>
-      </div>
-    </div>
+        <div class="dl-actions">
+          <a class="btn btn-primary" href="{{ site.download_android }}">
+            下载 APK
+            <span class="btn-note">v{{ site.native_version }} · 免费版</span>
+          </a>
+          <span class="btn btn-soon">应用市场</span>
+        </div>
+      </li>
+      <li class="dl-item">
+        <div class="dl-info">
+          <span class="dl-name">Windows<span class="dl-tag">x64 · 原型版</span></span>
+          <p class="dl-desc">
+            跨平台原型版的桌面端，消息、语音与视频通话都已可用。使用前请先阅读<a href="#limits">已知限制</a>。
+          </p>
+        </div>
+        <div class="dl-actions">
+          <a class="btn btn-primary" href="{{ site.download_windows }}">
+            下载 exe
+            <span class="btn-note">v{{ site.proto_version }}</span>
+          </a>
+        </div>
+      </li>
+    </ul>
+    <p class="dl-hint">
+      历史发布见 <a href="{{ site.releases_url }}" target="_blank" rel="noopener">GitHub Releases</a>。
+    </p>
     <p class="hero-notice">
       <strong>免责声明：</strong>本软件为技术研究与教学示例，不提供平台服务，使用者自行承担全部风险。<a href="#disclaimer">详见免责声明 →</a>
     </p>
@@ -151,7 +156,7 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
     <h2>direct-chat/isle 目前能做什么</h2>
     <p>
       <strong>direct-chat</strong> 是项目名称，<strong>isle</strong> 是它的客户端——你下载安装的就是它，各个版本都以这个名字发布。
-      以下是 isle 当前已实现的能力（描述的是上面可下载的跨平台原型版；与 Android 原生版的区别见<a href="{{ '/faq/' | relative_url }}">FAQ</a>）：
+      以下是 isle 当前已实现的能力（描述的是上面可下载的原型版；与 Android 原生版的区别见<a href="{{ '/faq/' | relative_url }}">FAQ</a>）：
     </p>
     <ul class="feature-list">
       <li>
@@ -164,7 +169,7 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
       </li>
       <li>
         <span class="bullet"></span>
-        <div><strong>消息</strong> — 节点直连收发 plaintext / markdown 消息（Android 原生版本暂不支持）。</div>
+        <div><strong>消息</strong> — 节点直连收发 plaintext / markdown 消息。</div>
       </li>
       <li>
         <span class="bullet"></span>
@@ -176,26 +181,10 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
 
 <section id="screens" class="section section-alt">
   <div class="container">
-    <h2>应用截图</h2>
-    <p class="section-sub">以下截图取自 <code>isle</code> 当前版本。</p>
+    <h2>Windows 原型版界面</h2>
+    <p class="section-sub">以下截图取自上面可下载的 <code>isle</code> 原型版（Windows x64）。Android 原生版的界面见<a href="#how">快速上手</a>里的演示。</p>
 
     <div class="shot-grid">
-      <figure class="shot">
-        <img src="{{ '/screenshots/wizard_1_zh.png' | relative_url }}" alt="初始化向导" loading="lazy" />
-        <figcaption>初始化向导 — 配置网络发现方式</figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="{{ '/screenshots/main_device_wo_identity_zh.png' | relative_url }}" alt="设备主页" loading="lazy" />
-        <figcaption>设备主页 — 尚未设置身份时</figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="{{ '/screenshots/main_addrbook_with_identity_zh.png' | relative_url }}" alt="地址簿" loading="lazy" />
-        <figcaption>地址簿 — 已设置身份 “Alice”</figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="{{ '/screenshots/find_other_local_device_zh.png' | relative_url }}" alt="局域网查找" loading="lazy" />
-        <figcaption>局域网查找 — 自动发现同网下的其他节点</figcaption>
-      </figure>
       <figure class="shot">
         <img src="{{ '/screenshots/list_other_contacts_zh.png' | relative_url }}" alt="联系人列表" loading="lazy" />
         <figcaption>联系人列表 — 聊天、语音、视频入口</figcaption>
@@ -226,7 +215,7 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
         <span class="step-num">1</span>
         <div>
           <h4>下载并安装</h4>
-          <p>Windows x64 或 Android arm64，跟随向导完成初始化：设置网络、设备信息，身份可选。</p>
+          <p>Windows x64 或 Android，跟随向导完成初始化：设置网络、设备信息，身份可选。</p>
         </div>
       </li>
       <li>
@@ -244,6 +233,12 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
         </div>
       </li>
     </ol>
+
+    <figure class="demo">
+      <video controls preload="metadata" playsinline
+             src="{{ '/assets/isle-demo-v1.mp4' | relative_url }}"></video>
+      <figcaption>Android 原生版演示 · 约 50 秒：初始化，添加联系人（局域网查找），发起通话。</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -251,7 +246,6 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
   <div class="container narrow">
     <h2>已知限制</h2>
     <p class="callout">
-      <code>isle</code> 的当前实现是原型，目的是验证点对点通信这条路线。
       以下限制客观存在，部分可能不会解决。
     </p>
 
@@ -262,8 +256,8 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
 
     <h3>平台与界面</h3>
     <p>
-      应用基于 tauri，理论上可覆盖全平台，目前只编译 Windows 和 Android aarch64 版本。
-      UI 按手机小屏设计，桌面端只有简单自适应。Android 不同版本的 webview 差异较大，界面问题基本难以避免。
+      原型版基于 tauri，理论上可覆盖全平台，目前只编译 Windows 版本；Android 由单独的原生版本提供。
+      UI 按手机小屏设计，桌面端只有简单自适应。
     </p>
 
     <h3>功能缺口</h3>
@@ -275,8 +269,9 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
 
     <h3>双方须同时在线</h3>
     <p>
-      没有服务器暂存消息：一方离线（尤其 Android 应用切到后台断网时），另一方就无法送达。
-      如果打算用旧手机做受话端，现阶段只能<em>插电、亮屏、保持应用在前台</em>——更多做法见 <a href="{{ '/faq/' | relative_url }}">FAQ</a>。
+      没有服务器暂存消息：一方离线，另一方就无法送达。
+      Android 原生版以后台服务保持在线，应用内会提醒你开启所需权限；权限给全后，正常情况下切到后台也不影响接收。
+      但个别厂商 ROM（如 MIUI）在特定情况下仍会杀掉应用，这一点无法保证。更多说明见 <a href="{{ '/faq/' | relative_url }}">FAQ</a>。
     </p>
   </div>
 </section>
@@ -285,7 +280,7 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
   <div class="container narrow">
     <h2>接下来做什么</h2>
     <p class="section-sub">
-      现在是两条线并行：跨平台原型版与 Android 原生版。两者共用同一套底层，区别在界面形态和系统适配深度，后续都会继续推进。
+      现在是两条线并行：原型版与 Android 原生版。两者共用同一套底层，区别在界面形态和系统适配深度，后续都会继续推进。
     </p>
     <ol class="roadmap">
       <li>
@@ -305,8 +300,8 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
       <li>
         <span class="prio">P3</span>
         <div>
-          <h4>Android 原生版适配平板与 TV</h4>
-          <p>让 Android 原生版适配 Android 平板与 Android TV，覆盖更大的屏幕与不同的交互方式。</p>
+          <h4>Android 原生版适配 Android TV</h4>
+          <p>让 Android 原生版适配 Android TV，覆盖更大的屏幕与遥控器交互。</p>
         </div>
       </li>
       <li>

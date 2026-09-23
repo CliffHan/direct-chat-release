@@ -11,7 +11,7 @@ description: The terms that apply to the direct-chat applications, currently the
 
 <h1 class="page-title">Terms of Service</h1>
 
-<p class="legal-meta">Effective {{ site.legal_effective_date }} · Last updated {{ site.legal_last_updated }} · Applies to the {{ site.legal_project }} applications, currently <code>{{ site.legal_app }}</code> (v{{ site.app_version }} and later)</p>
+<p class="legal-meta">Effective {{ site.legal_effective_date }} · Last updated {{ site.legal_last_updated }} · Applies to the {{ site.legal_project }} applications, currently <code>{{ site.legal_app }}</code></p>
 
 <p class="callout"><strong>The short version:</strong> direct-chat is software you install and run, not a service I operate for you. There is no account, no server, and no guarantee that any message will be delivered. You are responsible for your device, your keys, and how you use the software. It is provided as is, without warranty, and it is not intended for emergency or safety-critical communication. The app is free and ad-supported: advertisements are served by third-party SDKs, as described in the Privacy Policy.</p>
 
@@ -176,7 +176,7 @@ I may revise these Terms from time to time. The updated version will be posted a
 
 These Terms, and any dispute arising out of or relating to them or to the Software, are governed by {{ site.legal_jurisdiction }}, without regard to conflict-of-laws rules. Subject to any mandatory consumer protections of your country of residence, the {{ site.legal_forum }} shall have non-exclusive jurisdiction over such disputes.
 
-A named governing law and forum is not strictly required by law, but a clause without them would leave the applicable law to be decided by conflict-of-laws rules after the fact, which helps nobody. I have chosen a neutral forum rather than one tied to my own location, precisely because the Software is distributed globally through Google Play.
+A named governing law and forum is not strictly required by law, but a clause without them would leave the applicable law to be decided by conflict-of-laws rules after the fact, which helps nobody. I have chosen a neutral forum rather than one tied to my own location, precisely because the Software is distributed globally through app stores and direct downloads.
 
 Before starting any formal proceeding, please contact me at <{{ site.legal_email }}> and give me a reasonable opportunity to resolve the matter.
 

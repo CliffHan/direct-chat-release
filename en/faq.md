@@ -31,10 +31,9 @@ Once bound, the association cannot simply be removed — the only way out is res
 What a reset does to your data depends on the platform and on which build you are running:
 
 - **Windows (prototype)**: the address book and chat history live in a SQLite database file, while your identity and other personal info live in a TOML file with the same name. Keep those two files in place (or back them up and restore them), and the data survives the reset.
-- **Android, prototype build**: reset wipes everything — the address book and chat history go with it, and there is no way back.
 - **Android, native build**: encrypted backup and import are supported. Export a backup before resetting, then import it during initialization, and your address book, chat history, and identity all come back.
 
-Backup and import exist only in the native Android build. The cross-platform prototype exists to validate the approach as broadly as possible, and there is no plan to add this feature to it — so on the prototype a reset means the data is gone for good. Follow the Windows instructions above and keep your own copy of the files.
+Backup and import exist only in the native Android build. The prototype exists to validate the approach as broadly as possible, and there is no plan to add this feature to it — so on the prototype a reset means the data is gone for good. Follow the Windows instructions above and keep your own copy of the files.
 
 How a backup works: when you **export**, you set a password, the backup is encrypted with it, and it is saved to the device's Downloads folder by default. When you **import**, you pick the file through the system file picker and enter the same password to decrypt it. The password is never uploaded anywhere and the developer has no means of decrypting the file. That cuts both ways: no one else ends up holding a readable copy, but there is no way to recover a forgotten password either — lose it and that backup cannot be opened.
 
@@ -46,10 +45,10 @@ Every device running isle is a p2p network node with its own unique device ID. A
 
 Both are builds of the same client, <code>isle</code>; they simply optimise for different things.
 
-- **Cross-platform prototype** — what you can download from the homepage today. One codebase packaged for Windows x64 and Android arm64, running inside a WebView on Android. Its job is to validate the peer-to-peer approach as broadly as possible: several platforms at once, and enough functionality to actually send messages and make calls. The trade-off is that the parts needing deep OS support — staying alive in the background, notifications, a call screen that behaves properly — are its weakest area, and overall stability is average.
-- **Native Android version** — nearly finished, sharing the same core as the prototype. Written against Android itself, so the parts that lean on the system (background survival, notifications, a call UI that integrates with the system dialler and comes up on the lock screen) behave far better. It is narrower in scope for now: the current build does not implement messaging, so it can't send or receive messages yet. It will be published on Google Play, and both lines keep moving: messaging is coming to it, and the prototype will adopt the interface it establishes.
+- **Prototype** — what you can download from the homepage today, Windows x64 only. Its job is to validate the peer-to-peer approach as broadly as possible: enough functionality to actually send messages and make calls. The trade-off is that the parts needing deep OS support — staying alive in the background, notifications, a call screen that behaves properly — are its weakest area, and overall stability is average.
+- **Native Android version** — released, sharing the same core as the prototype. Written against Android itself, so the parts that lean on the system (background survival, notifications, a call UI that integrates with the system dialler and comes up on the lock screen) behave far better. It is narrower in scope for now: the current build does not implement messaging, so it can't send or receive messages yet. Download it from the [homepage]({{ '/en/' | relative_url }}) or [GitHub Releases]({{ site.releases_url }}); both lines keep moving: messaging is coming to it, and the prototype will adopt the interface it establishes.
 
-Unless a question says otherwise, everything else in this FAQ that mentions Android refers to the cross-platform prototype.
+Unless a question says otherwise, everything else in this FAQ that mentions Android refers to the native Android build.
 
 <h3 class="faq-group">Using it</h3>
 
@@ -61,11 +60,15 @@ It currently uses the infrastructure provided by n0. With IPv6 availability much
 
 <h3 class="faq-q">How do I keep the Android app alive?</h3>
 
-There is no server holding messages, so the receiving end must keep isle online. What works differs per system:
+There is no server holding messages, so the receiving end must keep isle online.
 
-- **General**: keep it plugged in; set screen timeout to the maximum (or always-on) in system settings; keep isle in the foreground.
+The native Android build keeps itself online with a background service: on first use the app prompts you to grant the permissions it needs. Grant those and going to the background no longer stops it staying online and taking incoming calls.
+
+Granted permissions are not a guarantee, though — some vendor ROMs, MIUI in particular, will still kill the app in certain situations, and there is nothing the app can do about that. These help, depending on your device:
+
 - **MIUI / Xiaomi**: open the recent-apps switcher, long-press the isle card, and choose “Lock” so it survives one-tap cleanup.
 - **Other Chinese ROMs**: most have similar mechanisms — disable battery optimization for isle and allow autostart / background running.
+- **If it still misses things**: keep it plugged in, set screen timeout to the maximum (or always-on), and keep isle in the foreground as a last resort.
 
 Behavior varies a lot between ROMs. If you find something that works on your device, write in and I'll add it here.
 
@@ -131,7 +134,7 @@ The prototype can technically be compiled for these platforms, but I don't have 
 
 <h3 class="faq-q">I found a bug — how do I report it?</h3>
 
-Include your OS version, app version (e.g. v{{ site.app_version }}) and steps to reproduce, then email <cliff@clifftop.win> or open an issue on the [GitHub repo](https://github.com/CliffHan/direct-chat-release).
+Include your OS version, app version (e.g. v{{ site.native_version }}) and steps to reproduce, then email <cliff@clifftop.win> or open an issue on the [GitHub repo](https://github.com/CliffHan/direct-chat-release).
 
 </div>
 </section>

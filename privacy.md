@@ -11,7 +11,7 @@ description: How the direct-chat applications, currently isle, handle your infor
 
 <h1 class="page-title">Privacy Policy</h1>
 
-<p class="legal-meta">Effective {{ site.legal_effective_date }} · Last updated {{ site.legal_last_updated }} · Applies to the {{ site.legal_project }} applications, currently <code>{{ site.legal_app }}</code> (v{{ site.app_version }} and later), and to this website</p>
+<p class="legal-meta">Effective {{ site.legal_effective_date }} · Last updated {{ site.legal_last_updated }} · Applies to the {{ site.legal_project }} applications, currently <code>{{ site.legal_app }}</code>, and to this website</p>
 
 <p class="callout"><strong>The short version:</strong> direct-chat has no accounts, no servers, and no analytics or crash reporting of my own. Your contacts and messages are stored only on your own device and on the devices of the people you talk to; as the developer I operate no backend service, so I have no way to read, store, or produce your messages. When a direct device-to-device connection cannot be established, traffic is relayed through the public iroh relay network, and relayed data stays encrypted end to end. Setting up a call also involves queries to public STUN/ICE servers, which see only the network addresses involved and never your content. The Apps are ad-supported: advertisements are served by third-party SDKs through {{ site.legal_ads_platform }}, and those SDKs collect device identifiers and ad-interaction data for their own advertising purposes, as explained in section 6.</p>
 
@@ -32,7 +32,7 @@ description: How the direct-chat applications, currently isle, handle your infor
     <li><a href="#rights">Your rights and choices</a></li>
     <li><a href="#transfers">International data transfers</a></li>
     <li><a href="#website">This website</a></li>
-    <li><a href="#play">Summary for the Google Play "Data safety" form</a></li>
+    <li><a href="#store">Summary for app store data safety declarations</a></li>
     <li><a href="#changes">Changes to this policy</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -209,10 +209,10 @@ The direct-chat website is a set of static pages. It does not use accounts, logi
 
 The website does load Google AdSense, a third-party advertising service. Google and its partners may use cookies or similar technologies to serve and measure ads, and may collect information such as your IP address and interactions with ads, subject to Google's own privacy policy. You can control ad personalisation through Google's ad settings and through your browser's cookie controls. Blocking or removing cookies does not affect the Apps, which are independent of the website's advertising.
 
-### 15. Summary for the Google Play "Data safety" form
-{: #play}
+### 15. Summary for app store data safety declarations
+{: #store}
 
-This section is provided to help keep my Play Console declaration consistent with this policy. It is a summary, not a substitute for the declaration itself:
+This section is provided to help keep the data safety declarations I file with app stores consistent with this policy. It is a summary, not a substitute for the declaration itself:
 
 - **Data collected by the developer:** none. No data is transmitted off the device to me, and there is no analytics or crash-reporting SDK.
 - **Data collected by third parties (advertising):** device or other identifiers (advertising ID), approximate location derived from IP address, and app activity / ad interactions — collected by advertising SDKs through {{ site.legal_ads_platform }} for advertising, measurement, and fraud prevention, and shared with advertising partners.
@@ -221,7 +221,7 @@ This section is provided to help keep my Play Console declaration consistent wit
 - **Deletion:** there is no server-side data of mine to delete; users delete local data in the app or by uninstalling. Advertising providers retain data under their own policies.
 - **Independent security review:** none has been performed. This is a personally developed project, not a certified product.
 
-If a given release ships without advertising, no advertising-related data is collected in that release, and the declaration is adjusted accordingly. If Google's declaration options and this policy ever appear to conflict, this policy describes what the software actually does.
+If a given release ships without advertising, no advertising-related data is collected in that release, and the declaration is adjusted accordingly. If a store's declaration options and this policy ever appear to conflict, this policy describes what the software actually does.
 
 ### 16. Changes to this policy
 {: #changes}

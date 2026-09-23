@@ -17,42 +17,47 @@ description: direct-chat — messages travel directly between two devices. No se
     <div class="meta">
       <span class="status">
         <span class="dot"></span>
-        Current client: <code>isle</code> v{{ site.app_version }}
+        Current client: <code>isle</code>
       </span>
       <span class="status">
         <span class="dot dot-dim"></span>
-        Windows x64 / Android arm64
+        Windows x64 · Android
       </span>
     </div>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="{{ '/app/isle_v' | append: site.app_version | append: '_' | append: site.app_git_sha | append: '_windows_x64.exe' | relative_url }}">
-        Download Windows x64
-        <span class="btn-note">v{{ site.app_version }} · exe · prototype</span>
-      </a>
-      <a class="btn btn-primary" href="{{ '/app/isle_v' | append: site.app_version | append: '_' | append: site.app_git_sha | append: '_android_arm64.apk' | relative_url }}">
-        Download Android arm64
-        <span class="btn-note">v{{ site.app_version }} · apk · prototype</span>
-      </a>
-      <a class="btn btn-ghost" href="#connect">Contact &amp; feedback</a>
-    </div>
-    <p class="dl-hint">
-      Both downloads are the cross-platform prototype build — please read the <a href="#limits">known limitations</a> before using it.
-      Previous releases live on <a href="https://github.com/CliffHan/direct-chat-release" target="_blank" rel="noopener">GitHub</a>.
-    </p>
-    <div class="dl-coming">
-      <span class="badge">Coming soon</span>
-      <div>
-        <p>
-          <strong>Native Android version.</strong> Written for Android itself, sharing the same core as the prototype but with far better system integration — background survival, notifications, and a call screen that works with the lock screen and the system dialler.
-          Its current build does not yet implement messaging; both builds will keep moving forward, and the prototype will adopt the interface the native version establishes.
-          See the <a href="{{ '/en/faq/' | relative_url }}">FAQ</a> for how the two differ today.
-        </p>
-        <div class="dl-coming-actions">
-          <span class="btn btn-soon">App stores<span class="btn-note">once the channel is decided</span></span>
-          <span class="btn btn-soon">Download APK<span class="btn-note">same build</span></span>
+    <ul class="dl-list">
+      <li class="dl-item">
+        <div class="dl-info">
+          <span class="dl-name">Android<span class="dl-tag">native</span></span>
+          <p class="dl-desc">
+            Written for Android itself — better background survival, notifications, and system dialler integration. Its current build does not yet implement messaging.
+          </p>
         </div>
-      </div>
-    </div>
+        <div class="dl-actions">
+          <a class="btn btn-primary" href="{{ site.download_android }}">
+            Download APK
+            <span class="btn-note">v{{ site.native_version }} · free</span>
+          </a>
+          <span class="btn btn-soon">App stores</span>
+        </div>
+      </li>
+      <li class="dl-item">
+        <div class="dl-info">
+          <span class="dl-name">Windows<span class="dl-tag">x64 · prototype</span></span>
+          <p class="dl-desc">
+            The desktop build of the cross-platform prototype — messaging, voice and video calls all work. Please read the <a href="#limits">known limitations</a> first.
+          </p>
+        </div>
+        <div class="dl-actions">
+          <a class="btn btn-primary" href="{{ site.download_windows }}">
+            Download exe
+            <span class="btn-note">v{{ site.proto_version }}</span>
+          </a>
+        </div>
+      </li>
+    </ul>
+    <p class="dl-hint">
+      Previous releases live on <a href="{{ site.releases_url }}" target="_blank" rel="noopener">GitHub Releases</a>.
+    </p>
     <p class="hero-notice">
       <strong>Disclaimer:</strong> This software is a technical research and teaching example. No platform service is provided. Users bear all risks. <a href="#disclaimer">Read full disclaimer →</a>
     </p>
@@ -151,7 +156,7 @@ description: direct-chat — messages travel directly between two devices. No se
     <h2>What direct-chat/isle does today</h2>
     <p>
       <strong>direct-chat</strong> is the name of the project; <strong>isle</strong> is the client you install and run — every build is published under that name.
-      What it already does (this describes the cross-platform prototype you can download above; see the <a href="{{ '/en/faq/' | relative_url }}">FAQ</a> for how the native Android version differs):
+      What it already does (this describes the prototype you can download above; see the <a href="{{ '/en/faq/' | relative_url }}">FAQ</a> for how the native Android version differs):
     </p>
     <ul class="feature-list">
       <li>
@@ -164,7 +169,7 @@ description: direct-chat — messages travel directly between two devices. No se
       </li>
       <li>
         <span class="bullet"></span>
-        <div><strong>Messaging</strong> — direct plaintext / markdown messaging between isle nodes (not yet on the native Android version).</div>
+        <div><strong>Messaging</strong> — direct plaintext / markdown messaging between isle nodes.</div>
       </li>
       <li>
         <span class="bullet"></span>
@@ -176,26 +181,10 @@ description: direct-chat — messages travel directly between two devices. No se
 
 <section id="screens" class="section section-alt">
   <div class="container">
-    <h2>Screenshots</h2>
-    <p class="section-sub">Taken from the current build of <code>isle</code>. The app UI itself is bilingual.</p>
+    <h2>Windows prototype UI</h2>
+    <p class="section-sub">These are from the <code>isle</code> prototype downloadable above (Windows x64). For the native Android build, see the demo in <a href="#how">quick start</a>.</p>
 
     <div class="shot-grid">
-      <figure class="shot">
-        <img src="{{ '/screenshots/wizard_1_en.png' | relative_url }}" alt="Setup wizard" loading="lazy" />
-        <figcaption>Setup wizard — configuring discovery methods</figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="{{ '/screenshots/main_device_wo_identity_en.png' | relative_url }}" alt="Device home" loading="lazy" />
-        <figcaption>Device home — before an identity is set</figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="{{ '/screenshots/main_addrbook_with_identity_en.png' | relative_url }}" alt="Address book" loading="lazy" />
-        <figcaption>Address book — identity “Alice” in use</figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="{{ '/screenshots/find_other_local_device_en.png' | relative_url }}" alt="LAN discovery" loading="lazy" />
-        <figcaption>LAN discovery — other nodes on the same network</figcaption>
-      </figure>
       <figure class="shot">
         <img src="{{ '/screenshots/list_other_contacts_en.png' | relative_url }}" alt="Contacts list" loading="lazy" />
         <figcaption>Contacts list — chat, voice, and video entry points</figcaption>
@@ -226,7 +215,7 @@ description: direct-chat — messages travel directly between two devices. No se
         <span class="step-num">1</span>
         <div>
           <h4>Download and install</h4>
-          <p>Windows x64 or Android arm64. Follow the setup wizard: configure networking, name the device, optionally set an identity.</p>
+          <p>Windows x64 or Android. Follow the setup wizard: configure networking, name the device, optionally set an identity.</p>
         </div>
       </li>
       <li>
@@ -244,6 +233,12 @@ description: direct-chat — messages travel directly between two devices. No se
         </div>
       </li>
     </ol>
+
+    <figure class="demo">
+      <video controls preload="metadata" playsinline
+             src="{{ '/assets/isle-demo-v1.mp4' | relative_url }}"></video>
+      <figcaption>Native Android demo · ~50 seconds: setup, adding a contact (LAN discovery), starting a call.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -251,7 +246,6 @@ description: direct-chat — messages travel directly between two devices. No se
   <div class="container narrow">
     <h2>Known limitations</h2>
     <p class="callout">
-      <code>isle</code> is a prototype built to validate the peer-to-peer approach.
       The limitations below are real, and some may never be fixed.
     </p>
 
@@ -262,8 +256,8 @@ description: direct-chat — messages travel directly between two devices. No se
 
     <h3>Platforms &amp; UI</h3>
     <p>
-      The app is built with tauri, so full-platform coverage is possible in principle, but only Windows and Android aarch64 builds exist today.
-      The UI targets phone-sized screens; desktop only gets basic adaptation. Android webview differences across versions make UI glitches hard to avoid.
+      The prototype is built with tauri, so full-platform coverage is possible in principle, but only the Windows build exists today; Android is served by the separate native version.
+      The UI targets phone-sized screens; desktop only gets basic adaptation.
     </p>
 
     <h3>Missing features</h3>
@@ -275,8 +269,9 @@ description: direct-chat — messages travel directly between two devices. No se
 
     <h3>Both sides must be online</h3>
     <p>
-      There is no server holding messages for you: if one side goes offline (especially when the Android app is backgrounded and loses network), delivery fails.
-      If you plan to use an old phone as the receiving end, for now it has to stay <em>plugged in, screen on, app in the foreground</em> — more tips in the <a href="{{ '/en/faq/' | relative_url }}">FAQ</a>.
+      There is no server holding messages for you: if one side goes offline, delivery fails.
+      The native Android build keeps itself online with a background service and prompts you to grant the permissions it needs — with those granted, going to the background no longer stops it receiving.
+      Some vendor ROMs (MIUI, for instance) will still kill the app in certain situations, though, and there is no guarantee against that. More details in the <a href="{{ '/en/faq/' | relative_url }}">FAQ</a>.
     </p>
   </div>
 </section>
@@ -285,7 +280,7 @@ description: direct-chat — messages travel directly between two devices. No se
   <div class="container narrow">
     <h2>What's next</h2>
     <p class="section-sub">
-      There are two builds now: the cross-platform prototype and the native Android version. They share the same core and differ in interface and how deeply each fits into its system — both continue in parallel.
+      There are two builds now: the prototype and the native Android version. They share the same core and differ in interface and how deeply each fits into its system — both continue in parallel.
     </p>
     <ol class="roadmap">
       <li>
@@ -305,8 +300,8 @@ description: direct-chat — messages travel directly between two devices. No se
       <li>
         <span class="prio">P3</span>
         <div>
-          <h4>Android native: tablets &amp; TV</h4>
-          <p>Adapt the native Android version for Android tablets and Android TV — bigger screens, different interaction patterns.</p>
+          <h4>Android native: Android TV</h4>
+          <p>Adapt the native Android version for Android TV — bigger screens and remote-control interaction.</p>
         </div>
       </li>
       <li>

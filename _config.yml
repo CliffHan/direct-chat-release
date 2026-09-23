@@ -7,14 +7,21 @@ baseurl: ""
 
 markdown: kramdown
 
-# 当前发布版本与构建对应的 git 短 SHA（升级版本时只需改这两处）
-app_version: "0.1.2"
-app_git_sha: "efd980c"
+# ── 发布信息 ────────────────────────────────────────────────────────────
+# 两条发布线各自独立编号：原生版（Android）与原型版（仅 Windows x64）
+native_version: "0.2.0"     # Android 原生版（当前主发布线）
+proto_version: "0.1.2"      # 原型版（仅 Windows x64）
+
+# 安装包一律托管在 GitHub Releases，不进仓库（0.2.0 的 universal APK 有 120 MiB，
+# 超过 GitHub 单文件 100 MiB 上限）。升级版本时：先把新包传到 Releases，再改下面三项。
+releases_url: "https://github.com/CliffHan/direct-chat-release/releases"
+download_windows: "https://github.com/CliffHan/direct-chat-release/releases/download/proto-v0.1.2/isle_v0.1.2_efd980c_windows_x64.exe"
+download_android: "https://github.com/CliffHan/direct-chat-release/releases/download/native-v0.2.0/isle_v0.2.0_038d898_android_universal_free.apk"
 
 # 法律页面（/privacy/ 与 /terms/）共用的信息，改动只需在这里改一处
 legal_effective_date: "2026-09-09"          # 生效日期（YYYY-MM-DD）
-legal_last_updated: "2026-09-17"            # 最后更新日期（YYYY-MM-DD）
-legal_developer: "Cliff Han"                # 开发者 / 法律责任主体名称（建议与 Play 开发者账号名称一致）
+legal_last_updated: "2026-09-23"            # 最后更新日期（YYYY-MM-DD）
+legal_developer: "Cliff Han"                # 开发者 / 法律责任主体名称（与各应用市场开发者账号保持一致）
 legal_email: "cliff@clifftop.win"           # 隐私与条款联系邮箱
 legal_address: "Available upon request"     # 邮寄地址（如需，改为真实地址）
 legal_jurisdiction: "the laws of Singapore"                       # 管辖法律（中立选择，不在中国大陆上架）
