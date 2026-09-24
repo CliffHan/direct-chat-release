@@ -18,6 +18,14 @@ releases_url: "https://github.com/CliffHan/direct-chat-release/releases"
 download_windows: "https://github.com/CliffHan/direct-chat-release/releases/download/proto-v0.1.2/isle_v0.1.2_efd980c_windows_x64.exe"
 download_android: "https://github.com/CliffHan/direct-chat-release/releases/download/native-v0.2.0/isle_v0.2.0_038d898_android_universal_free.apk"
 
+# 应用商店（已上架的写在这里，首页 Android 卡片会自动生成按钮；中英两版同步）
+# 新增一家商店 = 往列表里加一条，正文不用改。note_* 可省略（省略则不显示小字）。
+app_stores:
+  - name: "APKPure"
+    url: "https://apkpure.com/p/com.cliff.isle.free"
+    note_zh: "第三方商店"
+    note_en: "third-party store"
+
 # 法律页面（/privacy/ 与 /terms/）共用的信息，改动只需在这里改一处
 legal_effective_date: "2026-09-09"          # 生效日期（YYYY-MM-DD）
 legal_last_updated: "2026-09-23"            # 最后更新日期（YYYY-MM-DD）

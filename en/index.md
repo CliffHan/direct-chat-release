@@ -37,7 +37,14 @@ description: direct-chat — messages travel directly between two devices. No se
             Download APK
             <span class="btn-note">v{{ site.native_version }} · free</span>
           </a>
-          <span class="btn btn-soon">App stores</span>
+          {%- for store in site.app_stores %}
+          <a class="btn btn-ghost" href="{{ store.url }}" target="_blank" rel="noopener">
+            {{ store.name }}
+            {%- if store.note_en %}
+            <span class="btn-note">{{ store.note_en }}</span>
+            {%- endif %}
+          </a>
+          {%- endfor %}
         </div>
       </li>
       <li class="dl-item">

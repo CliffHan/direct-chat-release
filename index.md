@@ -37,7 +37,14 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
             下载 APK
             <span class="btn-note">v{{ site.native_version }} · 免费版</span>
           </a>
-          <span class="btn btn-soon">应用市场</span>
+          {%- for store in site.app_stores %}
+          <a class="btn btn-ghost" href="{{ store.url }}" target="_blank" rel="noopener">
+            {{ store.name }}
+            {%- if store.note_zh %}
+            <span class="btn-note">{{ store.note_zh }}</span>
+            {%- endif %}
+          </a>
+          {%- endfor %}
         </div>
       </li>
       <li class="dl-item">
