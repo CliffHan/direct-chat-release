@@ -9,14 +9,14 @@ markdown: kramdown
 
 # ── 发布信息 ────────────────────────────────────────────────────────────
 # 两条发布线各自独立编号：原生版（Android）与原型版（仅 Windows x64）
-native_version: "0.2.0"     # Android 原生版（当前主发布线）
+native_version: "0.2.1"     # Android 原生版（当前主发布线）
 proto_version: "0.1.2"      # 原型版（仅 Windows x64）
 
-# 安装包一律托管在 GitHub Releases，不进仓库（0.2.0 的 universal APK 有 120 MiB，
+# 安装包一律托管在 GitHub Releases，不进仓库（universal APK 已有 120 MiB 以上，
 # 超过 GitHub 单文件 100 MiB 上限）。升级版本时：先把新包传到 Releases，再改下面三项。
 releases_url: "https://github.com/CliffHan/direct-chat-release/releases"
 download_windows: "https://github.com/CliffHan/direct-chat-release/releases/download/proto-v0.1.2/isle_v0.1.2_efd980c_windows_x64.exe"
-download_android: "https://github.com/CliffHan/direct-chat-release/releases/download/native-v0.2.0/isle_v0.2.0_038d898_android_universal_free.apk"
+download_android: "https://github.com/CliffHan/direct-chat-release/releases/download/native-v0.2.1/isle_v0.2.1_7d16b8e_android_universal_free.apk"
 
 # 应用商店（已上架的写在这里，首页 Android 卡片会自动生成按钮；中英两版同步）
 # 新增一家商店 = 往列表里加一条，正文不用改。note_* 可省略（省略则不显示小字）。

@@ -29,7 +29,7 @@ description: direct-chat — messages travel directly between two devices. No se
         <div class="dl-info">
           <span class="dl-name">Android<span class="dl-tag">native</span></span>
           <p class="dl-desc">
-            Written for Android itself — better background survival, notifications, and system dialler integration. Its current build does not yet implement messaging.
+            Written for Android itself — better background survival, notifications, and system dialler integration, with layouts adapted for both phones and tablets. Messaging and calls are available.
           </p>
         </div>
         <div class="dl-actions">
@@ -163,7 +163,7 @@ description: direct-chat — messages travel directly between two devices. No se
     <h2>What direct-chat/isle does today</h2>
     <p>
       <strong>direct-chat</strong> is the name of the project; <strong>isle</strong> is the client you install and run — every build is published under that name.
-      What it already does (this describes the prototype you can download above; see the <a href="{{ '/en/faq/' | relative_url }}">FAQ</a> for how the native Android version differs):
+      What it already does (the Windows prototype and the native Android build share the same feature set; see the <a href="{{ '/en/faq/' | relative_url }}">FAQ</a> for how they differ):
     </p>
     <ul class="feature-list">
       <li>
@@ -242,9 +242,13 @@ description: direct-chat — messages travel directly between two devices. No se
     </ol>
 
     <figure class="demo">
-      <video controls preload="metadata" playsinline
-             src="{{ '/assets/isle-demo-v1.mp4' | relative_url }}"></video>
-      <figcaption>Native Android demo · ~50 seconds: setup, adding a contact (LAN discovery), starting a call.</figcaption>
+      <iframe src="https://www.youtube-nocookie.com/embed/fVOADGt6zVE"
+              title="isle native Android demo"
+              loading="lazy"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+      <figcaption>Native Android demo · ~3 min: setup and permissions, finding and adding a device on the LAN, starting a call, and chat with markdown rendering.</figcaption>
     </figure>
   </div>
 </section>
@@ -263,15 +267,14 @@ description: direct-chat — messages travel directly between two devices. No se
 
     <h3>Platforms &amp; UI</h3>
     <p>
-      The prototype is built with tauri, so full-platform coverage is possible in principle, but only the Windows build exists today; Android is served by the separate native version.
-      The UI targets phone-sized screens; desktop only gets basic adaptation.
+      The prototype is built with tauri, so full-platform coverage is possible in principle, but only the Windows build exists today; Android is served by the separate native version, whose layouts are adapted for both phones and tablets.
+      The prototype's UI targets phone-sized screens; desktop only gets basic adaptation.
     </p>
 
     <h3>Missing features</h3>
     <ul>
       <li>No file transfer yet.</li>
-      <li>No import / export of data (keys, address book, chat history).</li>
-      <li>Notification sounds, call history, disconnect handling and many other details are unfinished.</li>
+      <li>Disconnect handling and similar details are unfinished.</li>
     </ul>
 
     <h3>Both sides must be online</h3>
@@ -314,8 +317,8 @@ description: direct-chat — messages travel directly between two devices. No se
       <li>
         <span class="prio">P4</span>
         <div>
-          <h4>Messaging polish &amp; file transfer</h4>
-          <p>Round out messaging and add peer-to-peer file transfer.</p>
+          <h4>File transfer &amp; stability</h4>
+          <p>Add peer-to-peer file transfer and round out stability details such as disconnect handling.</p>
         </div>
       </li>
     </ol>

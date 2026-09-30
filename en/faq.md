@@ -45,8 +45,8 @@ Every device running isle is a p2p network node with its own unique device ID. A
 
 Both are builds of the same client, <code>isle</code>; they simply optimise for different things.
 
-- **Prototype** — what you can download from the homepage today, Windows x64 only. Its job is to validate the peer-to-peer approach as broadly as possible: enough functionality to actually send messages and make calls. The trade-off is that the parts needing deep OS support — staying alive in the background, notifications, a call screen that behaves properly — are its weakest area, and overall stability is average.
-- **Native Android version** — released, sharing the same core as the prototype. Written against Android itself, so the parts that lean on the system (background survival, notifications, a call UI that integrates with the system dialler and comes up on the lock screen) behave far better. It is narrower in scope for now: the current build does not implement messaging, so it can't send or receive messages yet. Download it from the [homepage]({{ '/en/' | relative_url }}) or [GitHub Releases]({{ site.releases_url }}); both lines keep moving: messaging is coming to it, and the prototype will adopt the interface it establishes.
+- **Prototype** — Windows x64 only. Its job is to validate the peer-to-peer approach as broadly as possible: enough functionality to actually send messages and make calls. The trade-off is that the parts needing deep OS support — staying alive in the background, notifications, a call screen that behaves properly — are its weakest area, and overall stability is average.
+- **Native Android version** — shares the same core as the prototype, and the same feature set. Written against Android itself, so the parts that lean on the system (background survival, notifications, a call UI that integrates with the system dialler and comes up on the lock screen) behave far better, with layouts adapted for both phones and tablets. Download it from the [homepage]({{ '/en/' | relative_url }}) or [GitHub Releases]({{ site.releases_url }}); both lines keep moving — the prototype will adopt the interface the native build establishes.
 
 Unless a question says otherwise, everything else in this FAQ that mentions Android refers to the native Android build.
 
@@ -74,7 +74,11 @@ Behavior varies a lot between ROMs. If you find something that works on your dev
 
 <h3 class="faq-q">Can I move my data to a new phone?</h3>
 
-Not in the short term. The protocol isn't settled yet — the database / config file formats are still changing, and import / export isn't implemented (see [known limitations]({{ '/en/' | relative_url }}#limits) on the homepage). A new phone means starting over as a “new device”.
+It depends on the build.
+
+**Native Android version** — yes. Using the reset flow described above: export an encrypted backup on the old phone, then import it during setup on the new one, and your address book, chat history, and identity all come back. The one condition is that you remember the password — there is no way to recover it.
+
+**Prototype** (Windows x64) — there is no import / export. The protocol isn't settled and the database / config file formats are still changing (see [known limitations]({{ '/en/' | relative_url }}#limits) on the homepage), so a new machine means starting over as a “new device”. Your only option is to keep your own copy of the `.db` and TOML files from the app directory, and accept that they may not be compatible across versions.
 
 <h3 class="faq-q">Will old data survive an upgrade?</h3>
 

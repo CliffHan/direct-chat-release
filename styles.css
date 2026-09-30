@@ -492,12 +492,19 @@ p {
 .demo {
   margin: 28px 0 0;
 }
-.demo video {
+.demo video,
+.demo iframe {
   display: block;
   width: 100%;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   background: #000;
+}
+
+/* YouTube 嵌入按 16:9 固定，避免 iframe 用到默认的 150px 高度 */
+.demo iframe {
+  aspect-ratio: 16 / 9;
+  height: auto;
 }
 .demo figcaption {
   margin-top: 10px;

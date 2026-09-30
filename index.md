@@ -29,7 +29,7 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
         <div class="dl-info">
           <span class="dl-name">Android<span class="dl-tag">原生版</span></span>
           <p class="dl-desc">
-            针对 Android 本身开发，后台保活、通知与系统电话界面适配更好。当前版本尚未实现消息收发。
+            针对 Android 本身开发，后台保活、通知与系统电话界面适配更好，手机与平板界面均已适配。消息与通话都可用。
           </p>
         </div>
         <div class="dl-actions">
@@ -163,7 +163,7 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
     <h2>direct-chat/isle 目前能做什么</h2>
     <p>
       <strong>direct-chat</strong> 是项目名称，<strong>isle</strong> 是它的客户端——你下载安装的就是它，各个版本都以这个名字发布。
-      以下是 isle 当前已实现的能力（描述的是上面可下载的原型版；与 Android 原生版的区别见<a href="{{ '/faq/' | relative_url }}">FAQ</a>）：
+      以下是 isle 当前已实现的能力（Windows 原型版与 Android 原生版的能力一致，区别见<a href="{{ '/faq/' | relative_url }}">FAQ</a>）：
     </p>
     <ul class="feature-list">
       <li>
@@ -243,8 +243,8 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
 
     <figure class="demo">
       <video controls preload="metadata" playsinline
-             src="{{ '/assets/isle-demo-v1.mp4' | relative_url }}"></video>
-      <figcaption>Android 原生版演示 · 约 50 秒：初始化，添加联系人（局域网查找），发起通话。</figcaption>
+             src="{{ '/assets/Isle_Free_Demo_v0.2.1.mp4' | relative_url }}"></video>
+      <figcaption>Android 原生版演示 · 约 3 分钟：初始化与权限设置，局域网查找并添加设备，发起通话，以及聊天会话（支持 markdown 渲染）。</figcaption>
     </figure>
   </div>
 </section>
@@ -263,15 +263,14 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
 
     <h3>平台与界面</h3>
     <p>
-      原型版基于 tauri，理论上可覆盖全平台，目前只编译 Windows 版本；Android 由单独的原生版本提供。
-      UI 按手机小屏设计，桌面端只有简单自适应。
+      原型版基于 tauri，理论上可覆盖全平台，目前只编译 Windows 版本；Android 由单独的原生版本提供，手机与平板界面均已适配。
+      原型版的 UI 按手机小屏设计，桌面端只有简单自适应。
     </p>
 
     <h3>功能缺口</h3>
     <ul>
       <li>尚不支持文件传输。</li>
-      <li>尚不支持数据（密钥、地址簿、聊天记录）导入导出。</li>
-      <li>通知铃声、通话记录、断线处理等细节未完成。</li>
+      <li>断线处理等细节未完成。</li>
     </ul>
 
     <h3>双方须同时在线</h3>
@@ -314,8 +313,8 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
       <li>
         <span class="prio">P4</span>
         <div>
-          <h4>完善消息收发与文件传输</h4>
-          <p>完善消息收发功能，并增加点对点文件传输。</p>
+          <h4>文件传输与稳定性</h4>
+          <p>增加点对点文件传输，并完善断线处理等稳定性细节。</p>
         </div>
       </li>
     </ol>
