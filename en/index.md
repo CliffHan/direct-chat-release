@@ -8,7 +8,7 @@ description: direct-chat — messages travel directly between two devices. No se
 
 <section class="hero">
   <div class="container">
-    <p class="eyebrow">Peer-to-peer messaging · prototype stage</p>
+    <p class="eyebrow">Peer-to-peer messaging</p>
     <h1 class="title">direct-chat<span class="title-app">/isle</span></h1>
     <p class="lede">
       Messages travel directly between two devices.
@@ -21,7 +21,7 @@ description: direct-chat — messages travel directly between two devices. No se
       </span>
       <span class="status">
         <span class="dot dot-dim"></span>
-        Windows x64 · Android
+        Windows · macOS · Android
       </span>
     </div>
     <ul class="dl-list">
@@ -29,7 +29,7 @@ description: direct-chat — messages travel directly between two devices. No se
         <div class="dl-info">
           <span class="dl-name">Android<span class="dl-tag">native</span></span>
           <p class="dl-desc">
-            Written for Android itself — better background survival, notifications, and system dialler integration, with layouts adapted for both phones and tablets. Messaging and calls are available.
+            Written for Android itself — better background survival, notifications, and system dialler integration, with layouts adapted for both phones and tablets.
           </p>
         </div>
         <div class="dl-actions">
@@ -49,15 +49,19 @@ description: direct-chat — messages travel directly between two devices. No se
       </li>
       <li class="dl-item">
         <div class="dl-info">
-          <span class="dl-name">Windows<span class="dl-tag">x64 · prototype</span></span>
+          <span class="dl-name">Desktop<span class="dl-tag">Windows x64 · macOS universal</span></span>
           <p class="dl-desc">
-            The desktop build of the cross-platform prototype — messaging, voice and video calls all work. Please read the <a href="#limits">known limitations</a> first.
+            Messaging, voice and video calls all work. The macOS build is not notarized, so the first launch needs a manual override; I don't own a Mac, so that build is unverified. See the <a href="{{ '/en/faq/' | relative_url }}">FAQ</a>.
           </p>
         </div>
         <div class="dl-actions">
           <a class="btn btn-primary" href="{{ site.download_windows }}">
-            Download exe
-            <span class="btn-note">v{{ site.proto_version }}</span>
+            Download Windows
+            <span class="btn-note">v{{ site.desktop_version }} · x64 · exe</span>
+          </a>
+          <a class="btn btn-ghost" href="{{ site.download_macos }}">
+            Download macOS
+            <span class="btn-note">v{{ site.desktop_version }} · universal · zip</span>
           </a>
         </div>
       </li>
@@ -80,7 +84,7 @@ description: direct-chat — messages travel directly between two devices. No se
 
     <h3>Nature of the software</h3>
     <p>
-      direct-chat is a personal <strong>technical research and teaching example</strong> project, not a commercially released product. The software is in the prototype stage; its functionality and stability have not been validated at scale and may contain known or unknown defects.
+      direct-chat is a personal <strong>technical research and teaching example</strong> project, not a commercially released product. The software is still in early development; its functionality and stability have not been validated at scale and may contain known or unknown defects.
     </p>
 
     <h3>No platform, no data control</h3>
@@ -163,7 +167,7 @@ description: direct-chat — messages travel directly between two devices. No se
     <h2>What direct-chat/isle does today</h2>
     <p>
       <strong>direct-chat</strong> is the name of the project; <strong>isle</strong> is the client you install and run — every build is published under that name.
-      What it already does (the Windows prototype and the native Android build share the same feature set; see the <a href="{{ '/en/faq/' | relative_url }}">FAQ</a> for how they differ):
+      What it already does (the desktop build and the native Android build share the same feature set; see the <a href="{{ '/en/faq/' | relative_url }}">FAQ</a> for how they differ):
     </p>
     <ul class="feature-list">
       <li>
@@ -172,7 +176,7 @@ description: direct-chat — messages travel directly between two devices. No se
       </li>
       <li>
         <span class="bullet"></span>
-        <div><strong>Address book</strong> — exchange public information between nodes and keep it for later.</div>
+        <div><strong>Address book</strong> — add contacts by automatic LAN discovery, by scanning a QR code, or by pasting a device ID; public information is exchanged and kept locally.</div>
       </li>
       <li>
         <span class="bullet"></span>
@@ -182,35 +186,11 @@ description: direct-chat — messages travel directly between two devices. No se
         <span class="bullet"></span>
         <div><strong>Calls</strong> — direct WebRTC audio / video calls between isle nodes.</div>
       </li>
+      <li>
+        <span class="bullet"></span>
+        <div><strong>Backup &amp; migration</strong> — export an encrypted backup and import it after a reinstall or on a new machine.</div>
+      </li>
     </ul>
-  </div>
-</section>
-
-<section id="screens" class="section section-alt">
-  <div class="container">
-    <h2>Windows prototype UI</h2>
-    <p class="section-sub">These are from the <code>isle</code> prototype downloadable above (Windows x64). For the native Android build, see the demo in <a href="#how">quick start</a>.</p>
-
-    <div class="shot-grid">
-      <figure class="shot">
-        <img src="{{ '/screenshots/list_other_contacts_en.png' | relative_url }}" alt="Contacts list" loading="lazy" />
-        <figcaption>Contacts list — chat, voice, and video entry points</figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="{{ '/screenshots/chat_with_text_en.png' | relative_url }}" alt="Text chat" loading="lazy" />
-        <figcaption>Text chat — plaintext / markdown</figcaption>
-      </figure>
-    </div>
-
-    <figure class="shot shot-wide">
-      <img src="{{ '/screenshots/call_from_left_to_write.png' | relative_url }}" alt="Outgoing call" loading="lazy" />
-      <figcaption>Calling — both sides see calling / incoming states</figcaption>
-    </figure>
-
-    <figure class="shot shot-wide">
-      <img src="{{ '/screenshots/videocall_from_right_to_left.png' | relative_url }}" alt="Video call" loading="lazy" />
-      <figcaption>Video call — direct WebRTC</figcaption>
-    </figure>
   </div>
 </section>
 
@@ -222,14 +202,14 @@ description: direct-chat — messages travel directly between two devices. No se
         <span class="step-num">1</span>
         <div>
           <h4>Download and install</h4>
-          <p>Windows x64 or Android. Follow the setup wizard: configure networking, name the device, optionally set an identity.</p>
+          <p>Windows x64, macOS or Android. Follow the setup wizard: configure networking, name the device, optionally set an identity.</p>
         </div>
       </li>
       <li>
         <span class="step-num">2</span>
         <div>
           <h4>Add a contact</h4>
-          <p>Find the other device automatically on the LAN, or enter its device ID directly (exchanged out of band — in person, or via any other channel).</p>
+          <p>Find the other device automatically on the LAN, scan its QR code, or enter its device ID by hand (exchanged out of band — in person, or via any other channel).</p>
         </div>
       </li>
       <li>
@@ -242,13 +222,23 @@ description: direct-chat — messages travel directly between two devices. No se
     </ol>
 
     <figure class="demo">
-      <iframe src="https://www.youtube-nocookie.com/embed/fVOADGt6zVE"
-              title="isle native Android demo"
+      <iframe src="https://www.youtube-nocookie.com/embed/2QF7xbiXzbg"
+              title="isle desktop and Android demo"
               loading="lazy"
               allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen></iframe>
-      <figcaption>Native Android demo · ~3 min: setup and permissions, finding and adding a device on the LAN, starting a call, and chat with markdown rendering.</figcaption>
+      <figcaption>Desktop ↔ Android demo · ~2 min: initial setup and identity, adding a contact by exchanging device IDs, and voice / video calls between the desktop and the phone.</figcaption>
+    </figure>
+
+    <figure class="demo">
+      <iframe src="https://www.youtube-nocookie.com/embed/fVOADGt6zVE"
+              title="isle Android demo"
+              loading="lazy"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+      <figcaption>Android ↔ Android demo · ~3 min: network and permission setup, finding a device on the LAN, starting a call, and chat with markdown / mermaid rendering.</figcaption>
     </figure>
   </div>
 </section>
@@ -267,19 +257,20 @@ description: direct-chat — messages travel directly between two devices. No se
 
     <h3>Platforms &amp; UI</h3>
     <p>
-      The prototype is built with tauri, so full-platform coverage is possible in principle, but only the Windows build exists today; Android is served by the separate native version, whose layouts are adapted for both phones and tablets.
-      The prototype's UI targets phone-sized screens; desktop only gets basic adaptation.
+      The desktop build ships as Windows x64 and macOS (universal: Intel and Apple Silicon), with an interface designed for desktop windows; Android is served by the separate native build, whose layouts are adapted for both phones and tablets. Linux is not available.
+      The macOS build is not notarized, needs a manual override on first launch, and has not been verified by actually running it — see the <a href="{{ '/en/faq/' | relative_url }}">FAQ</a>.
     </p>
 
     <h3>Missing features</h3>
     <ul>
-      <li>No file transfer yet.</li>
-      <li>Disconnect handling and similar details are unfinished.</li>
+      <li>Files, images and voice messages aren't supported yet — that has to wait until iroh-blobs matures.</li>
+      <li>Automatic reconnection after an unexpected disconnect isn't implemented yet.</li>
     </ul>
 
     <h3>Both sides must be online</h3>
     <p>
       There is no server holding messages for you: if one side goes offline, delivery fails.
+      On the desktop, hiding the window to the tray keeps it online; quitting the app stops it receiving.
       The native Android build keeps itself online with a background service and prompts you to grant the permissions it needs — with those granted, going to the background no longer stops it receiving.
       Some vendor ROMs (MIUI, for instance) will still kill the app in certain situations, though, and there is no guarantee against that. More details in the <a href="{{ '/en/faq/' | relative_url }}">FAQ</a>.
     </p>
@@ -290,7 +281,7 @@ description: direct-chat — messages travel directly between two devices. No se
   <div class="container narrow">
     <h2>What's next</h2>
     <p class="section-sub">
-      There are two builds now: the prototype and the native Android version. They share the same core and differ in interface and how deeply each fits into its system — both continue in parallel.
+      Here's what's next.
     </p>
     <ol class="roadmap">
       <li>
@@ -303,22 +294,18 @@ description: direct-chat — messages travel directly between two devices. No se
       <li>
         <span class="prio">P2</span>
         <div>
-          <h4>Rework the prototype UI</h4>
-          <p>Rebuild the prototype interface around the design the native Android version establishes — same core underneath, one shared experience on top.</p>
+          <h4>File transfer &amp; stability</h4>
+          <p>Add peer-to-peer file transfer (waiting on iroh-blobs) and round out stability details such as automatic reconnection after an unexpected disconnect.</p>
         </div>
       </li>
       <li>
         <span class="prio">P3</span>
         <div>
-          <h4>Android native: Android TV</h4>
-          <p>Adapt the native Android version for Android TV — bigger screens and remote-control interaction.</p>
-        </div>
-      </li>
-      <li>
-        <span class="prio">P4</span>
-        <div>
-          <h4>File transfer &amp; stability</h4>
-          <p>Add peer-to-peer file transfer and round out stability details such as disconnect handling.</p>
+          <h4>More platforms</h4>
+          <p>
+            Bring isle to more kinds of devices. Candidate directions include Android TV (bigger screens and remote-control interaction),
+            and a command-line version (approach still undecided). After the two items above; timing undecided.
+          </p>
         </div>
       </li>
     </ol>
@@ -329,8 +316,14 @@ description: direct-chat — messages travel directly between two devices. No se
   <div class="container narrow">
     <h2>Let's talk</h2>
     <p>
-      This is a prototype built to test an idea, and I'd love to hear your take:
+      This is a personal project built to test an idea, and I'd love to hear your take:
       how it feels to use, what broke, or what you think “communicate with nothing but a network connection” should look like.
+    </p>
+    <p>
+      I'm also looking for people to build this with. isle isn't limited to desktops and phones: anything that can offer WebRTC and a
+      network connection can, in principle, run it — Linux boards, TV boxes, car head units. Such a port would get a UI built for that
+      device, not the desktop interface. If you have such a device or use case, or you'd like to help make it work, write to me and we
+      can figure out the terms.
     </p>
     <div class="connect-grid">
       <a class="connect-card" href="mailto:cliff@clifftop.win">

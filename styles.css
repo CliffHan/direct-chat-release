@@ -652,6 +652,19 @@ p {
   margin-bottom: 0;
 }
 
+/* 附注：正文里的补充说明，用浅色小字和左细线弱化 */
+blockquote {
+  margin: 14px 0 0;
+  padding-left: 14px;
+  border-left: 2px solid var(--border-strong);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+blockquote p {
+  margin: 0;
+}
+
 /* ---------- faq ---------- */
 .faq-group {
   margin: 48px 0 4px;

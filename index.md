@@ -8,7 +8,7 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
 
 <section class="hero">
   <div class="container">
-    <p class="eyebrow">点对点即时通信 · 原型阶段</p>
+    <p class="eyebrow">点对点即时通信</p>
     <h1 class="title">direct-chat<span class="title-app">/isle</span></h1>
     <p class="lede">
       消息直接在两台设备之间传递。
@@ -21,7 +21,7 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
       </span>
       <span class="status">
         <span class="dot dot-dim"></span>
-        Windows x64 · Android
+        Windows · macOS · Android
       </span>
     </div>
     <ul class="dl-list">
@@ -29,7 +29,7 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
         <div class="dl-info">
           <span class="dl-name">Android<span class="dl-tag">原生版</span></span>
           <p class="dl-desc">
-            针对 Android 本身开发，后台保活、通知与系统电话界面适配更好，手机与平板界面均已适配。消息与通话都可用。
+            针对 Android 本身开发，后台保活、通知与系统电话界面适配更好，手机与平板界面均已适配。
           </p>
         </div>
         <div class="dl-actions">
@@ -49,15 +49,19 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
       </li>
       <li class="dl-item">
         <div class="dl-info">
-          <span class="dl-name">Windows<span class="dl-tag">x64 · 原型版</span></span>
+          <span class="dl-name">桌面版<span class="dl-tag">Windows x64 · macOS universal</span></span>
           <p class="dl-desc">
-            跨平台原型版的桌面端，消息、语音与视频通话都已可用。使用前请先阅读<a href="#limits">已知限制</a>。
+            消息、语音与视频通话都已可用。macOS 版未经 Apple 公证，首次打开需要手动放行；我没有 macOS 设备，这一版尚未经过实际验证。详见<a href="{{ '/faq/' | relative_url }}">常见问题</a>。
           </p>
         </div>
         <div class="dl-actions">
           <a class="btn btn-primary" href="{{ site.download_windows }}">
-            下载 exe
-            <span class="btn-note">v{{ site.proto_version }}</span>
+            下载 Windows 版
+            <span class="btn-note">v{{ site.desktop_version }} · x64 · exe</span>
+          </a>
+          <a class="btn btn-ghost" href="{{ site.download_macos }}">
+            下载 macOS 版
+            <span class="btn-note">v{{ site.desktop_version }} · universal · zip</span>
           </a>
         </div>
       </li>
@@ -80,7 +84,7 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
 
     <h3>产品性质</h3>
     <p>
-      direct-chat 是个人开发的<strong>技术研究与教学示例</strong>项目，并非正式发布的商业产品。软件处于原型阶段，功能与稳定性未经大规模验证，可能存在已知或未知的缺陷。
+      direct-chat 是个人开发的<strong>技术研究与教学示例</strong>项目，并非正式发布的商业产品。软件仍处于早期开发阶段，功能与稳定性未经大规模验证，可能存在已知或未知的缺陷。
     </p>
 
     <h3>无平台、无数据控制力</h3>
@@ -163,7 +167,7 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
     <h2>direct-chat/isle 目前能做什么</h2>
     <p>
       <strong>direct-chat</strong> 是项目名称，<strong>isle</strong> 是它的客户端——你下载安装的就是它，各个版本都以这个名字发布。
-      以下是 isle 当前已实现的能力（Windows 原型版与 Android 原生版的能力一致，区别见<a href="{{ '/faq/' | relative_url }}">FAQ</a>）：
+      以下是 isle 当前已实现的能力（桌面版与 Android 原生版的能力一致，区别见<a href="{{ '/faq/' | relative_url }}">FAQ</a>）：
     </p>
     <ul class="feature-list">
       <li>
@@ -172,7 +176,7 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
       </li>
       <li>
         <span class="bullet"></span>
-        <div><strong>地址簿</strong> — 节点之间交换公开信息并保存，方便再次联系。</div>
+        <div><strong>地址簿</strong> — 局域网内自动发现、扫二维码或手动输入设备标识来添加联系人，公开信息交换后保存在本地。</div>
       </li>
       <li>
         <span class="bullet"></span>
@@ -182,35 +186,11 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
         <span class="bullet"></span>
         <div><strong>通话</strong> — 节点直连进行 WebRTC 音频 / 视频通话。</div>
       </li>
+      <li>
+        <span class="bullet"></span>
+        <div><strong>备份与迁移</strong> — 导出加密备份，重装或换机时导入即可恢复。</div>
+      </li>
     </ul>
-  </div>
-</section>
-
-<section id="screens" class="section section-alt">
-  <div class="container">
-    <h2>Windows 原型版界面</h2>
-    <p class="section-sub">以下截图取自上面可下载的 <code>isle</code> 原型版（Windows x64）。Android 原生版的界面见<a href="#how">快速上手</a>里的演示。</p>
-
-    <div class="shot-grid">
-      <figure class="shot">
-        <img src="{{ '/screenshots/list_other_contacts_zh.png' | relative_url }}" alt="联系人列表" loading="lazy" />
-        <figcaption>联系人列表 — 聊天、语音、视频入口</figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="{{ '/screenshots/chat_with_text_zh.png' | relative_url }}" alt="文本聊天" loading="lazy" />
-        <figcaption>文本聊天 — 支持 plaintext / markdown</figcaption>
-      </figure>
-    </div>
-
-    <figure class="shot shot-wide">
-      <img src="{{ '/screenshots/call_from_left_to_write.png' | relative_url }}" alt="呼叫界面" loading="lazy" />
-      <figcaption>呼叫界面 — 双方分别显示正在呼叫 / 来电</figcaption>
-    </figure>
-
-    <figure class="shot shot-wide">
-      <img src="{{ '/screenshots/videocall_from_right_to_left.png' | relative_url }}" alt="视频通话" loading="lazy" />
-      <figcaption>视频通话 — WebRTC 直连</figcaption>
-    </figure>
   </div>
 </section>
 
@@ -222,14 +202,14 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
         <span class="step-num">1</span>
         <div>
           <h4>下载并安装</h4>
-          <p>Windows x64 或 Android，跟随向导完成初始化：设置网络、设备信息，身份可选。</p>
+          <p>Windows x64、macOS 或 Android，跟随向导完成初始化：设置网络、设备信息，身份可选。</p>
         </div>
       </li>
       <li>
         <span class="step-num">2</span>
         <div>
           <h4>添加联系人</h4>
-          <p>局域网内自动查找对方设备，或输入对方的设备唯一标识（带外交换，例如当面或用其他渠道告知）。</p>
+          <p>局域网内自动查找对方设备，或扫对方的二维码添加，也可以手动输入设备唯一标识（带外交换，例如当面或用其他渠道告知）。</p>
         </div>
       </li>
       <li>
@@ -242,9 +222,29 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
     </ol>
 
     <figure class="demo">
-      <video controls preload="metadata" playsinline
-             src="{{ '/assets/Isle_Free_Demo_v0.2.1.mp4' | relative_url }}"></video>
-      <figcaption>Android 原生版演示 · 约 3 分钟：初始化与权限设置，局域网查找并添加设备，发起通话，以及聊天会话（支持 markdown 渲染）。</figcaption>
+      <iframe src="https://www.youtube-nocookie.com/embed/2QF7xbiXzbg"
+              title="isle 桌面版与 Android 版演示"
+              loading="lazy"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+      <figcaption>
+        桌面版 ↔ Android 互通 · 约 2 分钟：初始化并建立身份、交换设备标识添加联系人，以及桌面端与手机之间的语音 / 视频通话。
+        如无法观看，可<a href="{{ '/assets/Isle_Demo_v0.2.2_desktop-android.mp4' | relative_url }}" download>直接下载视频</a>（约 15 MB）。
+      </figcaption>
+    </figure>
+
+    <figure class="demo">
+      <iframe src="https://www.youtube-nocookie.com/embed/fVOADGt6zVE"
+              title="isle Android 版互通演示"
+              loading="lazy"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+      <figcaption>
+        Android ↔ Android 互通 · 约 3 分钟：网络与权限设置、局域网内互相发现设备、发起通话，以及支持 markdown / mermaid 渲染的聊天会话。
+        如无法观看，可<a href="{{ '/assets/Isle_Demo_v0.2.1_android-android.mp4' | relative_url }}" download>直接下载视频</a>（约 11 MB）。
+      </figcaption>
     </figure>
   </div>
 </section>
@@ -263,19 +263,21 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
 
     <h3>平台与界面</h3>
     <p>
-      原型版基于 tauri，理论上可覆盖全平台，目前只编译 Windows 版本；Android 由单独的原生版本提供，手机与平板界面均已适配。
-      原型版的 UI 按手机小屏设计，桌面端只有简单自适应。
+      桌面版提供 Windows x64 与 macOS（universal，Intel 与 Apple Silicon 通用）两个构建，界面按桌面窗口设计；
+      Android 由单独的原生版提供，手机与平板界面均已适配。Linux 暂不提供。
+      macOS 版未经 Apple 公证，首次打开需要手动放行，且尚未经过实际验证，详见 <a href="{{ '/faq/' | relative_url }}">FAQ</a>。
     </p>
 
     <h3>功能缺口</h3>
     <ul>
-      <li>尚不支持文件传输。</li>
-      <li>断线处理等细节未完成。</li>
+      <li>文件、图片、语音等多媒体传输暂不提供——这部分要等 iroh-blobs 完善之后再做。</li>
+      <li>意外断线后的自动重连尚未实现。</li>
     </ul>
 
     <h3>双方须同时在线</h3>
     <p>
       没有服务器暂存消息：一方离线，另一方就无法送达。
+      桌面版把窗口收进托盘就会继续在线，彻底退出应用则不再接收。
       Android 原生版以后台服务保持在线，应用内会提醒你开启所需权限；权限给全后，正常情况下切到后台也不影响接收。
       但个别厂商 ROM（如 MIUI）在特定情况下仍会杀掉应用，这一点无法保证。更多说明见 <a href="{{ '/faq/' | relative_url }}">FAQ</a>。
     </p>
@@ -286,7 +288,7 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
   <div class="container narrow">
     <h2>接下来做什么</h2>
     <p class="section-sub">
-      现在是两条线并行：原型版与 Android 原生版。两者共用同一套底层，区别在界面形态和系统适配深度，后续都会继续推进。
+      接下来主要做这几件事。
     </p>
     <ol class="roadmap">
       <li>
@@ -299,22 +301,18 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
       <li>
         <span class="prio">P2</span>
         <div>
-          <h4>原型版界面重构</h4>
-          <p>以 Android 原生版确立的界面为基准重构原型版界面——底层不变，上层收敛为一致的体验。</p>
+          <h4>文件传输与稳定性</h4>
+          <p>增加点对点文件传输（要等 iroh-blobs 完善），并补上意外断线后的自动重连等稳定性细节。</p>
         </div>
       </li>
       <li>
         <span class="prio">P3</span>
         <div>
-          <h4>Android 原生版适配 Android TV</h4>
-          <p>让 Android 原生版适配 Android TV，覆盖更大的屏幕与遥控器交互。</p>
-        </div>
-      </li>
-      <li>
-        <span class="prio">P4</span>
-        <div>
-          <h4>文件传输与稳定性</h4>
-          <p>增加点对点文件传输，并完善断线处理等稳定性细节。</p>
+          <h4>移植到更多平台</h4>
+          <p>
+            让 isle 跑在更多形态的设备上。可能的方向包括 Android TV（更大的屏幕与遥控器交互），
+            以及命令行版本（思路尚未确定）。排在上面两项之后，具体时间未定。
+          </p>
         </div>
       </li>
     </ol>
@@ -325,8 +323,13 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
   <div class="container narrow">
     <h2>聊聊？</h2>
     <p>
-      这是个验证想法的原型项目，我很想知道你的看法：
+      这是个验证想法的个人项目，我很想知道你的看法：
       用起来感受如何、碰到了什么问题、或者你觉得“只要有网络就能通信”这件事应该是什么样。
+    </p>
+    <p>
+      另外想找同路人：isle 并不局限于桌面和手机。只要设备能提供 WebRTC 与网络连接，理论上都可以移植过去——
+      各种 Linux 开发板、电视盒子、车机都在这个范围内。这类移植会针对具体设备单独做界面，不受现有桌面界面的限制。
+      如果你手上正好有这样的设备或场景，或者想一起把它跑通，欢迎来信，合作方式可以聊。
     </p>
     <div class="connect-grid">
       <a class="connect-card" href="mailto:cliff@clifftop.win">

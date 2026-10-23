@@ -22,18 +22,16 @@ Each device can bind to at most one identity; one identity can be shared by seve
 
 The relationship is established like this:
 
-1. A device may be initialized without an identity and run as a “blank device”.
+1. A device may be initialized without an identity and run as an “anonymous device”.
 2. Creating an identity after initialization binds the device to that identity.
 3. To organize several devices under one identity, share it: an identity-less device sends a sharing request to your own device that already holds the identity, and once approved, those devices present the same identity to others.
 
 Once bound, the association cannot simply be removed — the only way out is resetting the device's data, which turns it back into a “new device” that starts over.
 
-What a reset does to your data depends on the platform and on which build you are running:
+What a reset does to your data depends on the build:
 
-- **Windows (prototype)**: the address book and chat history live in a SQLite database file, while your identity and other personal info live in a TOML file with the same name. Keep those two files in place (or back them up and restore them), and the data survives the reset.
-- **Android, native build**: encrypted backup and import are supported. Export a backup before resetting, then import it during initialization, and your address book, chat history, and identity all come back.
-
-Backup and import exist only in the native Android build. The prototype exists to validate the approach as broadly as possible, and there is no plan to add this feature to it — so on the prototype a reset means the data is gone for good. Follow the Windows instructions above and keep your own copy of the files.
+- **Desktop (Windows / macOS)**: export an encrypted backup and import it during initialization — or simply leave the config file and database (default `isle.toml` and `isle.db`) in place, or back them up and put them back. Both files live in the system's app data directory: `%APPDATA%\com.cliff.isle` on Windows, `~/Library/Application Support/com.cliff.isle` on macOS, and the app has a shortcut that opens that directory for you.
+- **Android, native build**: export an encrypted backup, then import it during initialization, and your address book, chat history, and identity all come back.
 
 How a backup works: when you **export**, you set a password, the backup is encrypted with it, and it is saved to the device's Downloads folder by default. When you **import**, you pick the file through the system file picker and enter the same password to decrypt it. The password is never uploaded anywhere and the developer has no means of decrypting the file. That cuts both ways: no one else ends up holding a readable copy, but there is no way to recover a forgotten password either — lose it and that backup cannot be opened.
 
@@ -41,12 +39,14 @@ How a backup works: when you **export**, you set a password, the backup is encry
 
 Every device running isle is a p2p network node with its own unique device ID. All communication happens between nodes; an identity is more than the “name card” a node presents — it also carries the signing and encryption keys that confirm the sender and the recipient of a message are who you intend them to be.
 
-<h3 class="faq-q">Prototype or native Android version — which is which?</h3>
+<h3 class="faq-q">Desktop or native Android version — which is which?</h3>
 
-Both are builds of the same client, <code>isle</code>; they simply optimise for different things.
+Both are builds of the same client, <code>isle</code>: same core, same feature set, differing in interface and in how deeply each fits into its system.
 
-- **Prototype** — Windows x64 only. Its job is to validate the peer-to-peer approach as broadly as possible: enough functionality to actually send messages and make calls. The trade-off is that the parts needing deep OS support — staying alive in the background, notifications, a call screen that behaves properly — are its weakest area, and overall stability is average.
-- **Native Android version** — shares the same core as the prototype, and the same feature set. Written against Android itself, so the parts that lean on the system (background survival, notifications, a call UI that integrates with the system dialler and comes up on the lock screen) behave far better, with layouts adapted for both phones and tablets. Download it from the [homepage]({{ '/en/' | relative_url }}) or [GitHub Releases]({{ site.releases_url }}); both lines keep moving — the prototype will adopt the interface the native build establishes.
+- **Desktop** — shipped as Windows x64 and macOS (universal), with an interface designed for desktop windows. The macOS build is not notarized, so the first launch needs a manual override — see the question below.
+- **Native Android version** — written against Android itself, so the parts that lean on the system (background survival, notifications, a call UI that integrates with the system dialler and comes up on the lock screen) behave far better, with layouts adapted for both phones and tablets.
+
+Both are downloadable from the [homepage]({{ '/en/' | relative_url }}); older builds live on [GitHub Releases]({{ site.releases_url }}).
 
 Unless a question says otherwise, everything else in this FAQ that mentions Android refers to the native Android build.
 
@@ -56,7 +56,18 @@ Unless a question says otherwise, everything else in this FAQ that mentions Andr
 
 No. Across networks, connections are established through the iroh network — at this stage you need to enable “free relay network” in the app's network settings.
 
-It currently uses the infrastructure provided by n0. With IPv6 availability much better than it used to be, most everyday cases connect directly peer-to-peer and rarely need a relay at all. It works in mainland China. Self-hosted relays / DNS can be added later if needed.
+It currently uses the infrastructure provided by n0. With IPv6 availability much better than it used to be, most everyday cases connect directly peer-to-peer and rarely need a relay at all. Self-hosted relays / DNS can be added later if needed.
+
+<h3 class="faq-q">The macOS build says the developer cannot be verified — what now?</h3>
+
+The macOS build is ad-hoc signed and not notarized by Apple, so Gatekeeper blocks the first launch. How you allow it depends on your macOS version:
+
+- **macOS 15 (Sequoia) and later**: double-click once, dismiss the warning, then open System Settings → Privacy &amp; Security, scroll to the Security section and click “Open Anyway”, confirming when asked. **Right-click → Open no longer works on these versions.**
+- **macOS 14 and earlier**: right-click the app icon → “Open”, then click “Open” again in the dialog.
+
+You can also strip the quarantine flag from Terminal with `xattr -dr com.apple.quarantine /Applications/isle-desktop.app` (assuming the app is in your Applications folder) and then just double-click it.
+
+Note also that ad-hoc signing has no stable developer identity, so after installing a new build macOS may ask for camera and microphone permission again.
 
 <h3 class="faq-q">How do I keep the Android app alive?</h3>
 
@@ -72,13 +83,17 @@ Granted permissions are not a guarantee, though — some vendor ROMs, MIUI in pa
 
 Behavior varies a lot between ROMs. If you find something that works on your device, write in and I'll add it here.
 
-<h3 class="faq-q">Can I move my data to a new phone?</h3>
+<h3 class="faq-q">Can I move my data to a new machine?</h3>
 
-It depends on the build.
+Yes.
 
-**Native Android version** — yes. Using the reset flow described above: export an encrypted backup on the old phone, then import it during setup on the new one, and your address book, chat history, and identity all come back. The one condition is that you remember the password — there is no way to recover it.
+**Native Android version** — export an encrypted backup on the old phone, then import it during setup on the new one, and your address book, chat history, and identity all come back.
 
-**Prototype** (Windows x64) — there is no import / export. The protocol isn't settled and the database / config file formats are still changing (see [known limitations]({{ '/en/' | relative_url }}#limits) on the homepage), so a new machine means starting over as a “new device”. Your only option is to keep your own copy of the `.db` and TOML files from the app directory, and accept that they may not be compatible across versions.
+**Desktop** (Windows / macOS) — export a backup on the old machine and import it during setup on the new one.
+
+The backup route requires remembering the password — there is no way to recover it. And since the protocol isn't settled and the database format keeps changing (see [known limitations]({{ '/en/' | relative_url }}#limits) on the homepage), moving across major versions isn't guaranteed to work.
+
+> On desktop there's a simpler route: copy `isle.toml` and `isle.db` from the app data directory straight across — no password involved, with the same caveat about major versions.
 
 <h3 class="faq-q">Will old data survive an upgrade?</h3>
 
@@ -86,6 +101,12 @@ Not guaranteed. The protocol is still maturing and the database / config formats
 
 - A change in the **first two** version-number segments almost certainly means an incompatible data format — old data can no longer be used.
 - A change in the **third** segment generally doesn't touch the database format, so old data should work.
+
+<h3 class="faq-q">Do messages support markdown?</h3>
+
+Yes. Both the desktop and the native Android build render markdown, but they don't share the same implementation — the exact syntax they support differs, and both are still incomplete. If a message doesn't render the way you expect, that's usually why.
+
+mermaid diagrams work on both. They're rendered by the WebView, so if it's too old a diagram may fail to appear or come out wrong — update WebView to the latest version your system supports.
 
 <h3 class="faq-group">Privacy &amp; security</h3>
 
@@ -102,7 +123,7 @@ If server nodes are added in the future to hold messages: point-to-point message
 isle has no account system and no login — the config is bound to the device, so there is no “password” in the first place, and nothing to “recover”. Keys stay on the device and are never uploaded:
 
 - **Android**: in the app's private directory.
-- **Windows**: in the same directory as the app itself.
+- **Desktop**: in the system's app data directory (Windows `%APPDATA%\com.cliff.isle`, macOS `~/Library/Application Support/com.cliff.isle`).
 
 There are two kinds of keys, and losing them has different consequences:
 
@@ -132,9 +153,14 @@ Server nodes could also support group chats, but in that case the server holds t
 
 Technical feasibility still needs to be proven, and my bandwidth is limited — open-sourcing too early would bring noise and distraction. Questions and suggestions are always welcome regardless.
 
-<h3 class="faq-q">What about iOS / macOS / Linux?</h3>
+<h3 class="faq-q">Which operating systems are supported?</h3>
 
-The prototype can technically be compiled for these platforms, but I don't have the bandwidth to verify and fix platform-specific issues right now, so they're on hold.
+- **Windows / Android** — what I use day to day; messaging, voice and video calls and the other main features have all been verified in practice.
+- **macOS** — same codebase as the Windows build, compiled from the same tauri project, so it should work; but I have no Mac to test on, so it hasn't been verified. Reports are welcome.
+- **iOS** — not supported. The system doesn't let ordinary apps listen in the background indefinitely, and isle has to stay online to receive messages: once iOS suspends the app, messages for it simply don't arrive. In theory a machine that's always on (or an auxiliary node) could hold them, but that needs a whole extra mechanism — not something I can do in the near term.
+- **Linux** — building the desktop version for Linux is technically possible, but the WebView that ships with each distribution varies in how well it supports WebRTC (what voice and video calls are built on), so shipping one wouldn't guarantee calls actually work. Once Tauri 3 lands and apps can bundle their own browser engine (CEF), that dependency on the system WebView goes away — I'll revisit it then.
+
+So only Windows and Android have actually been verified; nothing else has.
 
 <h3 class="faq-q">I found a bug — how do I report it?</h3>
 
