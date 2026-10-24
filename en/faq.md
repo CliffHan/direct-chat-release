@@ -58,6 +58,16 @@ No. Across networks, connections are established through the iroh network — at
 
 It currently uses the infrastructure provided by n0. With IPv6 availability much better than it used to be, most everyday cases connect directly peer-to-peer and rarely need a relay at all. Self-hosted relays / DNS can be added later if needed.
 
+<h3 class="faq-q">Messages arrive, but voice or video calls won't connect — why?</h3>
+
+Known issue: on some networks messages go through fine, but a call never connects.
+
+The app uses two different ways to connect peers: messages travel over iroh, while for a call **only the signalling** goes over iroh — the media connection is established by WebRTC itself. An iroh connection succeeds on most networks, so messages almost always get through; whether WebRTC can connect depends on both sides' networks allowing a direct path (NAT, firewalls and carrier policies can all block it), and there's currently no TURN server to fall back on.
+
+So “signalling works” does not mean “media works”. What you see: the call UI shows the connection state moving along, then it fails at the point where the media connection should be established.
+
+Fixing this properly needs a TURN relay server, so calls that can't connect directly can have their media relayed — that's part of the auxiliary server work and isn't possible in the near term. For now, try a different network (a phone hotspot, another Wi-Fi): a different NAT situation may let the direct path succeed, though there's no guarantee.
+
 <h3 class="faq-q">The macOS build says the developer cannot be verified — what now?</h3>
 
 The macOS build is ad-hoc signed and not notarized by Apple, so Gatekeeper blocks the first launch. How you allow it depends on your macOS version:
