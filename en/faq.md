@@ -166,11 +166,11 @@ Technical feasibility still needs to be proven, and my bandwidth is limited — 
 <h3 class="faq-q">Which operating systems are supported?</h3>
 
 - **Windows / Android** — what I use day to day; messaging, voice and video calls and the other main features have all been verified in practice.
-- **macOS** — same codebase as the Windows build, compiled from the same tauri project, so it should work; but I have no Mac to test on, so it hasn't been verified. Reports are welcome.
+- **macOS** — same codebase as the Windows build, compiled from the same tauri project; it has been tested and works on macOS, but I don't use it day to day, so the testing isn't thorough. Reports are welcome.
 - **iOS** — not supported. The system doesn't let ordinary apps listen in the background indefinitely, and isle has to stay online to receive messages: once iOS suspends the app, messages for it simply don't arrive. In theory a machine that's always on (or an auxiliary node) could hold them, but that needs a whole extra mechanism — not something I can do in the near term.
 - **Linux** — building the desktop version for Linux is technically possible, but the WebView that ships with each distribution varies in how well it supports WebRTC (what voice and video calls are built on), so shipping one wouldn't guarantee calls actually work. Once Tauri 3 lands and apps can bundle their own browser engine (CEF), that dependency on the system WebView goes away — I'll revisit it then.
 
-So only Windows and Android have actually been verified; nothing else has.
+So only Windows and Android have been verified through regular use; nothing else has been properly verified — macOS has had basic functional testing only.
 
 <h3 class="faq-q">I found a bug — how do I report it?</h3>
 

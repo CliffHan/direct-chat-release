@@ -51,7 +51,7 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
         <div class="dl-info">
           <span class="dl-name">桌面版<span class="dl-tag">Windows x64 · macOS universal</span></span>
           <p class="dl-desc">
-            消息、语音与视频通话都已可用。macOS 版未经 Apple 公证，首次打开需要手动放行；我没有 macOS 设备，这一版尚未经过实际验证。详见<a href="{{ '/faq/' | relative_url }}">常见问题</a>。
+            消息、语音与视频通话都已可用。macOS 版未经 Apple 公证，首次打开需要手动放行；已在 macOS 上实测可用，但我并不日常使用它，测试未必周全。详见<a href="{{ '/faq/' | relative_url }}">常见问题</a>。
           </p>
         </div>
         <div class="dl-actions">
@@ -265,7 +265,7 @@ description: direct-chat：消息直接在设备之间传递，没有服务器�
     <p>
       桌面版提供 Windows x64 与 macOS（universal，Intel 与 Apple Silicon 通用）两个构建，界面按桌面窗口设计；
       Android 由单独的原生版提供，手机与平板界面均已适配。Linux 暂不提供。
-      macOS 版未经 Apple 公证，首次打开需要手动放行，且尚未经过实际验证，详见 <a href="{{ '/faq/' | relative_url }}">FAQ</a>。
+      macOS 版未经 Apple 公证，首次打开需要手动放行；已在 macOS 上实测可用，但不是日常使用，覆盖得不够充分，详见 <a href="{{ '/faq/' | relative_url }}">FAQ</a>。
     </p>
 
     <h3>功能缺口</h3>

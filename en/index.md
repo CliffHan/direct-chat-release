@@ -51,7 +51,7 @@ description: direct-chat — messages travel directly between two devices. No se
         <div class="dl-info">
           <span class="dl-name">Desktop<span class="dl-tag">Windows x64 · macOS universal</span></span>
           <p class="dl-desc">
-            Messaging, voice and video calls all work. The macOS build is not notarized, so the first launch needs a manual override; I don't own a Mac, so that build is unverified. See the <a href="{{ '/en/faq/' | relative_url }}">FAQ</a>.
+            Messaging, voice and video calls all work. The macOS build is not notarized, so the first launch needs a manual override. It has been tested and works on macOS, but it isn't what I use day to day, so the testing is not exhaustive. See the <a href="{{ '/en/faq/' | relative_url }}">FAQ</a>.
           </p>
         </div>
         <div class="dl-actions">
@@ -258,7 +258,7 @@ description: direct-chat — messages travel directly between two devices. No se
     <h3>Platforms &amp; UI</h3>
     <p>
       The desktop build ships as Windows x64 and macOS (universal: Intel and Apple Silicon), with an interface designed for desktop windows; Android is served by the separate native build, whose layouts are adapted for both phones and tablets. Linux is not available.
-      The macOS build is not notarized, needs a manual override on first launch, and has not been verified by actually running it — see the <a href="{{ '/en/faq/' | relative_url }}">FAQ</a>.
+      The macOS build is not notarized and needs a manual override on first launch; it has been tested and works on macOS, but since it isn't in daily use the coverage is not exhaustive — see the <a href="{{ '/en/faq/' | relative_url }}">FAQ</a>.
     </p>
 
     <h3>Missing features</h3>
