@@ -9,7 +9,7 @@ markdown: kramdown
 
 # ── 发布信息 ────────────────────────────────────────────────────────────
 # 两条发布线各自独立编号：桌面版（Windows x64 / macOS universal）与原生版（Android）
-native_version: "0.2.2"     # Android 原生版
+native_version: "0.2.3"     # Android 原生版
 desktop_version: "0.2.3"    # 桌面版（Windows x64 / macOS universal）
 
 # 安装包一律托管在 GitHub Releases，不进仓库（universal APK 已有 120 MiB 以上，
@@ -17,7 +17,7 @@ desktop_version: "0.2.3"    # 桌面版（Windows x64 / macOS universal）
 releases_url: "https://github.com/CliffHan/direct-chat-release/releases"
 download_windows: "https://github.com/CliffHan/direct-chat-release/releases/download/desktop-v0.2.3/isle-desktop_v0.2.3-b195fb8_windows_x64.exe"
 download_macos: "https://github.com/CliffHan/direct-chat-release/releases/download/desktop-v0.2.3/isle-desktop_v0.2.3-b195fb8_macos_universal.zip"
-download_android: "https://github.com/CliffHan/direct-chat-release/releases/download/native-v0.2.2/isle-android_v0.2.2-939bdda_universal_free.apk"
+download_android: "https://github.com/CliffHan/direct-chat-release/releases/download/native-v0.2.3/isle-android_v0.2.3-18c766b_universal_free.apk"
 
 # 应用商店（已上架的写在这里，首页 Android 卡片会自动生成按钮；中英两版同步）
 # 新增一家商店 = 往列表里加一条，正文不用改。note_* 可省略（省略则不显示小字）。
